@@ -21,7 +21,35 @@ class _HomepageState extends State<Homepage> {
   Color secondaryCardColor = Color(0xFFC5C6F7);
 
   List<HomeCardInfo> homeCards = [];
-
+  Widget _offsetPopup() => PopupMenuButton<int>(
+      itemBuilder: (context) => [
+            const PopupMenuItem(
+              value: 1,
+              child: Text(
+                "Home",
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.w700),
+              ),
+            ),
+            const PopupMenuItem(
+              value: 2,
+              child: Text(
+                "Saved",
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.w700),
+              ),
+            ),
+          ],
+      icon: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: const ShapeDecoration(
+            color: Colors.blue,
+            shape: StadiumBorder(
+              side: BorderSide(color: Colors.white, width: 2),
+            )),
+        //child: Icon(Icons.menu, color: Colors.white), <-- You can give your icon here
+      ));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -202,6 +230,56 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
           ],
+        ),
+      ),
+      floatingActionButton: SizedBox(
+        height: 90,
+        width: 90,
+        child: FloatingActionButton(
+          backgroundColor: const Color(0xFF585CE5),
+          onPressed: () {},
+          child: Icon(
+            color: Colors.white,
+            Icons.select_all_rounded,
+            size: 62,
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: SizedBox(
+        height: 90,
+        child: BottomAppBar(
+          color: Colors.white,
+          // /shape: const CircularNotchedRectangle(),
+
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(left: 38.0, bottom: 20),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.home_filled,
+                    color: Colors.grey.shade400,
+                    size: 45,
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 40.0, bottom: 20),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.bookmark_border,
+                    size: 45,
+                    color: Colors.grey.shade400,
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
