@@ -1,3 +1,4 @@
+import 'package:ezy_share_got_design/screens/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -63,10 +64,15 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ],
                 ),
-                CircleAvatar(
-                  radius: 24,
-                  backgroundImage: NetworkImage(
-                    'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80',
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, Profile.id);
+                  },
+                  child: CircleAvatar(
+                    radius: 24,
+                    backgroundImage: NetworkImage(
+                      'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80',
+                    ),
                   ),
                 ),
               ],
