@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'dart:ui';
-
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:ezy_share_got_design/data.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   static const String id = 'Homepage';
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  SwiperController _controller = SwiperController();
+
+  int onCardNumber = 0;
+
+  Color primaryCardColor = Color(0xFF585CE5);
+  Color secondaryCardColor = Color(0xFFC5C6F7);
+
+  List<HomeCardInfo> homeCards = [];
 
   @override
   Widget build(BuildContext context) {
@@ -61,46 +75,52 @@ class Homepage extends StatelessWidget {
               height: 36.h,
             ),
             Container(
-              height: 30.h,
-              child: Expanded(
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    Text(
-                      'Visiting Card',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20.sp,
-                        fontFamily: 'manrope',
-                        fontWeight: FontWeight.w700,
-                      ),
+              constraints: BoxConstraints(
+                maxHeight: 30.h,
+              ),
+              child: Row(
+                children: [
+                  Flexible(
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Text(
+                          'Visiting Card',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20.sp,
+                            fontFamily: 'manrope',
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 24.w,
+                        ),
+                        Text(
+                          'Passport',
+                          style: TextStyle(
+                            color: Color(0x34211F30),
+                            fontFamily: 'manrope',
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 24.w,
+                        ),
+                        Text(
+                          'Citizenship',
+                          style: TextStyle(
+                            color: Color(0x34211F30),
+                            fontFamily: 'manrope',
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      width: 24.w,
-                    ),
-                    Text(
-                      'Passport',
-                      style: TextStyle(
-                        color: Color(0x34211F30),
-                        fontFamily: 'manrope',
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 24.w,
-                    ),
-                    Text(
-                      'Citizenship',
-                      style: TextStyle(
-                        color: Color(0x34211F30),
-                        fontFamily: 'manrope',
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             SizedBox(
@@ -108,11 +128,72 @@ class Homepage extends StatelessWidget {
             ),
             Container(
               height: 3.h,
-              width: 55.w,
+              width: 55.h,
               color: Color(0xFF7B66FF),
             ),
             SizedBox(
-              height: 24.h,
+              height: 30.h,
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                left: 9.w,
+              ),
+              child: Container(
+                height: 430.h,
+                child: Swiper(
+                  pagination: SwiperPagination(
+                    margin: EdgeInsets.only(top: 50.h),
+                    builder: DotSwiperPaginationBuilder(
+                      activeColor: Colors.black,
+                    ),
+                  ),
+                  onIndexChanged: (value) {
+                    setState(() {
+                      onCardNumber = value;
+                    });
+                    print(onCardNumber);
+                  },
+                  itemCount: 3,
+                  itemWidth: 230.w,
+                  layout: SwiperLayout.STACK,
+                  itemBuilder: (context, index) {
+                    return Stack(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(
+                            bottom: 25.h,
+                          ),
+                          child: Card(
+                            elevation: 8,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            color: cards[index].cardColor,
+                            child: Padding(
+                              padding: const EdgeInsets.all(50.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  SizedBox(
+                                    height: 20.h,
+                                  ),
+                                  Text(
+                                    cards[index].heading,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 30.sp,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ),
             ),
           ],
         ),

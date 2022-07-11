@@ -1,4 +1,5 @@
 import 'package:ezy_share_got_design/screens/homepage.dart';
+import 'package:ezy_share_got_design/screens/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
           initialRoute: Homepage.id,
           routes: {
             Homepage.id: (context) => Homepage(),
+            Profile.id: (context) => Profile(),
           },
         );
       }),
