@@ -1,5 +1,8 @@
+import 'package:ezy_share_got_design/screens/card_design.dart';
 import 'package:ezy_share_got_design/screens/homepage.dart';
 import 'package:ezy_share_got_design/screens/profile.dart';
+import 'package:ezy_share_got_design/screens/saved_cards.dart';
+import 'package:ezy_share_got_design/screens/visiting_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,6 +24,9 @@ class MyApp extends StatelessWidget {
           routes: {
             Homepage.id: (context) => Homepage(),
             Profile.id: (context) => Profile(),
+            CardDesign.id: (context) => CardDesign(),
+            SavedCard.id: (context) => SavedCard(),
+            VisitingCard.id: (context) => VisitingCard(),
           },
         );
       }),

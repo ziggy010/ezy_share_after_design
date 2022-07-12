@@ -1,4 +1,8 @@
+import 'package:ezy_share_got_design/components/bottom_navbar.dart';
+import 'package:ezy_share_got_design/constants.dart';
 import 'package:ezy_share_got_design/screens/profile.dart';
+import 'package:ezy_share_got_design/screens/saved_cards.dart';
+import 'package:ezy_share_got_design/screens/visiting_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -17,43 +21,59 @@ class _HomepageState extends State<Homepage> {
 
   int onCardNumber = 0;
 
+  int currentIndex = 0;
+
   Color primaryCardColor = Color(0xFF585CE5);
   Color secondaryCardColor = Color(0xFFC5C6F7);
 
-  List<HomeCardInfo> homeCards = [];
-  Widget _offsetPopup() => PopupMenuButton<int>(
-      itemBuilder: (context) => [
-            const PopupMenuItem(
-              value: 1,
-              child: Text(
-                "Home",
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.w700),
-              ),
-            ),
-            const PopupMenuItem(
-              value: 2,
-              child: Text(
-                "Saved",
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.w700),
-              ),
-            ),
-          ],
-      icon: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: const ShapeDecoration(
-            color: Colors.blue,
-            shape: StadiumBorder(
-              side: BorderSide(color: Colors.white, width: 2),
-            )),
-        //child: Icon(Icons.menu, color: Colors.white), <-- You can give your icon here
-      ));
+  String getTitleFirst(int onCardNumber) {
+    if (onCardNumber == 0) {
+      return 'Visiting Card';
+    } else if (onCardNumber == 1) {
+      return 'Passport';
+    } else {
+      return 'Citizenship';
+    }
+  }
+
+  String getTitleSecond(int onCardNumber) {
+    if (onCardNumber == 0) {
+      return 'Passport';
+    } else if (onCardNumber == 1) {
+      return 'Citizenship';
+    } else {
+      return 'Visiting Card';
+    }
+  }
+
+  String getTitleThird(int onCardNumber) {
+    if (onCardNumber == 0) {
+      return 'Citizenship';
+    } else if (onCardNumber == 1) {
+      return 'Visiting card';
+    } else {
+      return 'Passport';
+    }
+  }
+
+  Color getCardColor(int onCardColor) {
+    if (onCardColor == 0) {
+      return primaryCardColor;
+    } else {
+      return secondaryCardColor;
+    }
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFD3D3D3),
+      backgroundColor: kBackgroundColor,
       body: Padding(
         padding: const EdgeInsets.only(
           left: 24,
@@ -119,7 +139,7 @@ class _HomepageState extends State<Homepage> {
                       scrollDirection: Axis.horizontal,
                       children: [
                         Text(
-                          'Visiting Card',
+                          getTitleFirst(onCardNumber),
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 20.sp,
@@ -131,7 +151,7 @@ class _HomepageState extends State<Homepage> {
                           width: 24.w,
                         ),
                         Text(
-                          'Passport',
+                          getTitleSecond(onCardNumber),
                           style: TextStyle(
                             color: Color(0x34211F30),
                             fontFamily: 'manrope',
@@ -143,7 +163,7 @@ class _HomepageState extends State<Homepage> {
                           width: 24.w,
                         ),
                         Text(
-                          'Citizenship',
+                          getTitleThird(onCardNumber),
                           style: TextStyle(
                             color: Color(0x34211F30),
                             fontFamily: 'manrope',
@@ -177,15 +197,14 @@ class _HomepageState extends State<Homepage> {
                 child: Swiper(
                   pagination: SwiperPagination(
                     margin: EdgeInsets.only(top: 50.h),
-                    builder: DotSwiperPaginationBuilder(
-                      activeColor: Colors.black,
+                    builder: const DotSwiperPaginationBuilder(
+                      activeColor: Color(0xFF5D5FEF),
                     ),
                   ),
                   onIndexChanged: (value) {
                     setState(() {
                       onCardNumber = value;
                     });
-                    print(onCardNumber);
                   },
                   itemCount: 3,
                   itemWidth: 230.w,
@@ -197,28 +216,34 @@ class _HomepageState extends State<Homepage> {
                           padding: EdgeInsets.only(
                             bottom: 25.h,
                           ),
-                          child: Card(
-                            elevation: 8,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            color: cards[index].cardColor,
-                            child: Padding(
-                              padding: const EdgeInsets.all(50.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  SizedBox(
-                                    height: 20.h,
-                                  ),
-                                  Text(
-                                    cards[index].heading,
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 30.sp,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, VisitingCard.id);
+                            },
+                            child: Card(
+                              elevation: 8,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              color: getCardColor(index),
+                              child: Padding(
+                                padding: const EdgeInsets.all(50.0),
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    SizedBox(
+                                      height: 20.h,
                                     ),
-                                  )
-                                ],
+                                    Text(
+                                      cards[index].heading,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 30.sp,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -232,54 +257,64 @@ class _HomepageState extends State<Homepage> {
           ],
         ),
       ),
-      floatingActionButton: SizedBox(
-        height: 90,
-        width: 90,
-        child: FloatingActionButton(
-          backgroundColor: const Color(0xFF585CE5),
-          onPressed: () {},
-          child: Icon(
-            color: Colors.white,
-            Icons.select_all_rounded,
-            size: 62,
-          ),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: SizedBox(
-        height: 90,
-        child: BottomAppBar(
-          color: Colors.white,
-          // /shape: const CircularNotchedRectangle(),
-
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(left: 38.0, bottom: 20),
-                child: IconButton(
-                  icon: Icon(
-                    Icons.home_filled,
-                    color: Colors.grey.shade400,
-                    size: 45,
-                  ),
-                  onPressed: () {},
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 40.0, bottom: 20),
-                child: IconButton(
-                  icon: Icon(
-                    Icons.bookmark_border,
-                    size: 45,
-                    color: Colors.grey.shade400,
-                  ),
-                  onPressed: () {},
-                ),
-              ),
-            ],
+        height: 107.h,
+        child: BottomNavigationBar(
+          backgroundColor: Color(0xFFFEFEFF),
+          selectedItemColor: kNavbarColor,
+          currentIndex: currentIndex,
+          selectedFontSize: 10,
+          unselectedFontSize: 10,
+          selectedLabelStyle: TextStyle(
+            fontFamily: 'manrope',
           ),
+          onTap: (index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: CircleAvatar(
+                backgroundColor:
+                    currentIndex == 0 ? Color(0xFFF2F6FD) : Color(0xFFFEFEFF),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      currentIndex = 0;
+                    });
+                    Navigator.pushNamed(context, Homepage.id);
+                  },
+                  child: Image.asset(
+                    'lib/icons/Vector.png',
+                    color: currentIndex == 0 ? kNavbarColor : Color(0xFFB2B2B3),
+                  ),
+                ),
+              ),
+              label: 'My Cards',
+              backgroundColor: kContainerColor,
+            ),
+            BottomNavigationBarItem(
+              icon: CircleAvatar(
+                backgroundColor:
+                    currentIndex == 1 ? Color(0xFFF2F6FD) : Color(0xFFFEFEFF),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      currentIndex = 1;
+                    });
+                    Navigator.pushNamed(context, SavedCard.id);
+                  },
+                  child: Image.asset(
+                    'lib/icons/Bookmark.png',
+                    color: currentIndex == 1 ? kNavbarColor : Color(0xFFB2B2B3),
+                  ),
+                ),
+              ),
+              label: 'Saved Cards',
+              backgroundColor: kContainerColor,
+            ),
+          ],
         ),
       ),
     );

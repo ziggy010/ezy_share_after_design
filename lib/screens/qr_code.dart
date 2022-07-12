@@ -25,32 +25,6 @@ class _ScanQrPageState extends State<ScanQrPage> {
       controller!.resumeCamera();
     }
   }
-  // void _onQRViewCreated(QRViewController controller) {
-  //   setState(() => this.controller = controller);
-  //   controller.scannedDataStream.listen((scanData) {
-  //     setState(() => result = scanData);
-  //   });
-  // }
-
-  // In order to get hot reload to work we need to pause the camera if the platform
-  // is android, or resume the camera if the platform is iOS.
-  // @override
-  // void reassemble() {
-  //   super.reassemble();
-  //   if (Platform.isAndroid) {
-  //     controller!.resumeCamera();
-  //   } else if (Platform.isIOS) {
-  //     controller!.resumeCamera();
-  //   }
-  // }
-
-  // void readQr() async {
-  //   if (result != null) {
-  //     controller!.pauseCamera();
-  //     print(result!.code);
-  //     controller!.dispose();
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -80,29 +54,31 @@ class _ScanQrPageState extends State<ScanQrPage> {
             ),
           ),
           Container(
-              height: 100,
-              color: Colors.grey.shade900,
-              child: Expanded(
-                  flex: 1,
-                  child: Center(
-                    child: Container(
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: (result != null)
-                            ? Text(
-                                '   Type: ${describeEnum(result!.format)}  \n\n   Data: ${result!.code}',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                ),
-                              )
-                            : Text(
-                                'Scan a code',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                      ),
-                    ),
-                  )))
+            height: 100,
+            color: Colors.grey.shade900,
+            child: Expanded(
+              flex: 1,
+              child: Center(
+                child: Container(
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: (result != null)
+                        ? Text(
+                            '   Type: ${describeEnum(result!.format)}  \n\n   Data: ${result!.code}',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          )
+                        : Text(
+                            'Scan a code',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                  ),
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

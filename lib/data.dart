@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 class HomeCardInfo {
-  final Color cardColor;
+  Color cardColor;
   final String heading;
 
   HomeCardInfo(
