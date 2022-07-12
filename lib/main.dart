@@ -1,3 +1,4 @@
+import 'package:ezy_share_got_design/components/bottom_navbar.dart';
 import 'package:ezy_share_got_design/screens/card_design.dart';
 import 'package:ezy_share_got_design/screens/homepage.dart';
 import 'package:ezy_share_got_design/screens/profile.dart';
@@ -20,13 +21,14 @@ class MyApp extends StatelessWidget {
       builder: ((context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: Homepage.id,
+          initialRoute: BottomNavigationBarOne.id,
           routes: {
             Homepage.id: (context) => Homepage(),
             Profile.id: (context) => Profile(),
             CardDesign.id: (context) => CardDesign(),
             SavedCard.id: (context) => SavedCard(),
             VisitingCard.id: (context) => VisitingCard(),
+            BottomNavigationBarOne.id: (context) => BottomNavigationBarOne(),
           },
         );
       }),
