@@ -199,6 +199,7 @@ class _HomepageState extends State<Homepage> {
                     margin: EdgeInsets.only(top: 50.h),
                     builder: const DotSwiperPaginationBuilder(
                       activeColor: Color(0xFF5D5FEF),
+                      color: Color(0x305D5FEF),
                     ),
                   ),
                   onIndexChanged: (value) {
