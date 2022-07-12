@@ -1,5 +1,7 @@
 import 'package:ezy_share_got_design/constants.dart';
+import 'package:ezy_share_got_design/screens/homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class QrCode extends StatefulWidget {
   @override
@@ -7,31 +9,33 @@ class QrCode extends StatefulWidget {
 }
 
 class _QrCodeState extends State<QrCode> {
-  Image beforeAnimation = Image.asset(
-    'lib/icons/Scanner.png',
-    color: Colors.white,
-    height: 30,
-  );
-  Image afterAnimation = Image.asset(
-    'lib/icons/close.png',
-    color: Colors.white,
-    height: 20,
-  );
+  String before = 'Scanner';
+  String after = 'close';
 
-  bool a = true;
+  String finalImage = 'Scanner';
+
+  bool imageFirst = true;
 
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: 35,
       backgroundColor: kNavbarColor,
-      child: FloatingActionButton(
-        elevation: 0,
-        onPressed: () {
-          setState(() {});
-        },
-        child: beforeAnimation,
-        backgroundColor: kNavbarColor,
+      child: Stack(
+        children: [
+          FloatingActionButton(
+            elevation: 0,
+            onPressed: () {
+              setState(() {});
+            },
+            child: Image.asset(
+              'lib/icons/$finalImage.png',
+              color: Colors.white,
+              height: 20,
+            ),
+            backgroundColor: kNavbarColor,
+          ),
+        ],
       ),
     );
   }

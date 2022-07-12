@@ -2,6 +2,8 @@ import 'package:ezy_share_got_design/components/bottom_navbar.dart';
 import 'package:ezy_share_got_design/screens/card_design.dart';
 import 'package:ezy_share_got_design/screens/homepage.dart';
 import 'package:ezy_share_got_design/screens/profile.dart';
+import 'package:ezy_share_got_design/screens/qr_code.dart';
+import 'package:ezy_share_got_design/screens/qr_scan_page.dart';
 import 'package:ezy_share_got_design/screens/saved_cards.dart';
 import 'package:ezy_share_got_design/screens/visiting_card.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +14,6 @@ void main(List<String> args) {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -21,13 +21,15 @@ class MyApp extends StatelessWidget {
       builder: ((context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: BottomNavigationBarOne.id,
+          initialRoute: Homepage.id,
           routes: {
             Homepage.id: (context) => Homepage(),
             Profile.id: (context) => Profile(),
             CardDesign.id: (context) => CardDesign(),
             SavedCard.id: (context) => SavedCard(),
             VisitingCard.id: (context) => VisitingCard(),
+            QrScanPage.id: (context) => QrScanPage(),
+            ScanQrPage.id: (context) => ScanQrPage(),
             BottomNavigationBarOne.id: (context) => BottomNavigationBarOne(),
           },
         );

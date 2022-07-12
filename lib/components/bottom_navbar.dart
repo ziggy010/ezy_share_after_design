@@ -24,6 +24,7 @@ class _BottomNavigationBarOneState extends State<BottomNavigationBarOne> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       floatingActionButton: QrCode(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       backgroundColor: kBackgroundColor,
