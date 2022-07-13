@@ -132,9 +132,25 @@ class _SavedCardState extends State<SavedCard> {
                   onTap: () {
                     Navigator.pushNamed(context, Homepage.id);
                   },
-                  child: Image.asset(
-                    'lib/icons/Vector.png',
-                    color: Color(0xFFB2B2B3),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Image.asset(
+                          'lib/icons/Vector.png',
+                          color: Color(0xFFB2B2B3),
+                        ),
+                      ),
+                      Text(
+                        'My Cards',
+                        style: TextStyle(
+                          color: Color(0xFFB2B2B3),
+                          fontSize: 10.sp,
+                          fontFamily: 'manrope',
+                        ),
+                      )
+                    ],
                   ),
                 ),
                 Column(

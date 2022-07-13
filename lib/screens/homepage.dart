@@ -363,7 +363,10 @@ class _HomepageState extends State<Homepage> {
                     onTap: () {
                       Navigator.pushNamed(context, SavedCard.id);
                     },
-                    child: Image.asset('lib/icons/Bookmark.png'),
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      child: Image.asset('lib/icons/Bookmark.png'),
+                    ),
                   ),
                   Text(
                     'Saved Cards',

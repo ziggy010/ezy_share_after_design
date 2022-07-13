@@ -30,13 +30,6 @@ class _ScanQrPageState extends State<ScanQrPage> {
   Widget build(BuildContext context) {
     // readQr();
     return Scaffold(
-      appBar: AppBar(
-        title: Text('QR Scanner'),
-        bottomOpacity: 0.0,
-        elevation: 0.0,
-        backgroundColor: Colors.blue,
-        centerTitle: true,
-      ),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -56,25 +49,22 @@ class _ScanQrPageState extends State<ScanQrPage> {
           Container(
             height: 100,
             color: Colors.grey.shade900,
-            child: Expanded(
-              flex: 1,
-              child: Center(
-                child: Container(
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: (result != null)
-                        ? Text(
-                            '   Type: ${describeEnum(result!.format)}  \n\n   Data: ${result!.code}',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          )
-                        : Text(
-                            'Scan a code',
-                            style: TextStyle(color: Colors.white),
+            child: Center(
+              child: Container(
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: (result != null)
+                      ? Text(
+                          '   Type: ${describeEnum(result!.format)}  \n\n   Data: ${result!.code}',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
                           ),
-                  ),
+                        )
+                      : Text(
+                          'Scan a code',
+                          style: TextStyle(color: Colors.white),
+                        ),
                 ),
               ),
             ),
