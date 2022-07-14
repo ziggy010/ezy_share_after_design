@@ -1,7 +1,10 @@
 import 'package:ezy_share_got_design/components/bottom_navbar.dart';
 import 'package:ezy_share_got_design/components/qr_button.dart';
 import 'package:ezy_share_got_design/constants.dart';
+import 'package:ezy_share_got_design/screens/document_scan.dart';
 import 'package:ezy_share_got_design/screens/profile.dart';
+import 'package:ezy_share_got_design/screens/qr_code.dart';
+import 'package:ezy_share_got_design/screens/qr_scan_page.dart';
 import 'package:ezy_share_got_design/screens/saved_cards.dart';
 import 'package:ezy_share_got_design/screens/visiting_card.dart';
 import 'package:flutter/material.dart';
@@ -324,25 +327,40 @@ class _HomepageState extends State<Homepage>
                         left: 67,
                         bottom: 0,
                         child: AnimatedOpacity(
-                          duration: Duration(milliseconds: 700),
+                          duration: const Duration(milliseconds: 700),
                           opacity: currentOpacity,
                           curve: Curves.fastOutSlowIn,
                           child: Container(
-                            height: _containerHeight,
+                            height: 242.h,
                             width: 187.w,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Column(children: [
-                              QrContent(
-                                text: 'Citizenship',
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, DocumentScan.id);
+                                },
+                                child: QrContent(
+                                  text: 'Citizenship',
+                                ),
                               ),
-                              QrContent(
-                                text: 'Passport',
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, DocumentScan.id);
+                                },
+                                child: QrContent(
+                                  text: 'Passport',
+                                ),
                               ),
-                              QrContent(
-                                text: 'QR Scan',
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, QrScanPage.id);
+                                },
+                                child: QrContent(
+                                  text: 'QR Scan',
+                                ),
                               )
                             ]),
                           ),

@@ -42,128 +42,121 @@ class _QrScanPageState extends State<QrScanPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SizedBox(
-            height: 680.h,
+          Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Container(
+              height: 48.h,
+              width: 312.w,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        pageSelected = false;
+                        _controller.jumpToPage(0);
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container(
+                        height: 48.h,
+                        width: 147.w,
+                        decoration: BoxDecoration(
+                          color: pageSelected
+                              ? selectedButtonColor
+                              : notSelectedButtonColor,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'QR Scan',
+                            style: TextStyle(
+                              color: pageSelected
+                                  ? Colors.white
+                                  : notSelectedTextColor,
+                              fontSize: 14,
+                              fontFamily: 'poppins',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        pageSelected = false;
+                        _controller.jumpToPage(1);
+                      });
+                    },
+                    child: Container(
+                      height: 48.h,
+                      width: 156.w,
+                      decoration: BoxDecoration(
+                        color: pageSelected
+                            ? notSelectedButtonColor
+                            : selectedButtonColor,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Share QR',
+                          style: TextStyle(
+                            color: pageSelected
+                                ? notSelectedTextColor
+                                : Colors.white,
+                            fontSize: 14,
+                            fontFamily: 'poppins',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Flexible(
             child: Stack(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(24.0),
-                  child: Container(
-                    height: 48.h,
-                    width: 312.w,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              pageSelected = false;
-                              _controller.jumpToPage(0);
-                            });
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Container(
-                              height: 48.h,
-                              width: 147.w,
-                              decoration: BoxDecoration(
-                                color: pageSelected
-                                    ? selectedButtonColor
-                                    : notSelectedButtonColor,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'QR Scan',
-                                  style: TextStyle(
-                                    color: pageSelected
-                                        ? Colors.white
-                                        : notSelectedTextColor,
-                                    fontSize: 14,
-                                    fontFamily: 'poppins',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
+                PageView(
+                  controller: _controller,
+                  onPageChanged: (value) {
+                    setState(() {
+                      if (value == 0) {
+                        pageSelected = true;
+                      } else {
+                        pageSelected = false;
+                      }
+                    });
+                  },
+                  children: [
+                    Flexible(
+                      child: Container(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              ShareQR(),
+                            ],
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              pageSelected = false;
-                              _controller.jumpToPage(1);
-                            });
-                          },
-                          child: Container(
-                            height: 48.h,
-                            width: 156.w,
-                            decoration: BoxDecoration(
-                              color: pageSelected
-                                  ? notSelectedButtonColor
-                                  : selectedButtonColor,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Share QR',
-                                style: TextStyle(
-                                  color: pageSelected
-                                      ? notSelectedTextColor
-                                      : Colors.white,
-                                  fontSize: 14,
-                                  fontFamily: 'poppins',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Flexible(
-                  child: Stack(
-                    children: [
-                      PageView(
-                        controller: _controller,
-                        onPageChanged: (value) {
-                          setState(() {
-                            if (value == 0) {
-                              pageSelected = true;
-                            } else {
-                              pageSelected = false;
-                            }
-                          });
-                        },
-                        children: [
-                          Flexible(
-                            child: Container(
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  children: [
-                                    ShareQR(),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              height: 600.h,
-                              width: 450.h,
-                              color: Colors.black,
-                              child: ScanQrPage(),
-                            ),
-                          ),
-                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        height: 600.h,
+                        width: 450.h,
+                        color: Colors.black,
+                        child: ScanQrPage(),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

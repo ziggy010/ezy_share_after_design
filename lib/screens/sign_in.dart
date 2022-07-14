@@ -18,6 +18,13 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: kBackgroundColor,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+      ),
       resizeToAvoidBottomInset: false,
       backgroundColor: kBackgroundColor,
       body: Padding(
