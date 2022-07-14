@@ -28,7 +28,6 @@ class _ScanQrPageState extends State<ScanQrPage> {
 
   @override
   Widget build(BuildContext context) {
-    // readQr();
     return Scaffold(
       body: Column(
         children: <Widget>[
@@ -47,25 +46,26 @@ class _ScanQrPageState extends State<ScanQrPage> {
             ),
           ),
           Container(
-            height: 100,
+            height: 80,
             color: Colors.grey.shade900,
             child: Center(
-              child: Container(
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: (result != null)
-                      ? Text(
-                          '   Type: ${describeEnum(result!.format)}  \n\n   Data: ${result!.code}',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        )
-                      : Text(
-                          'Scan a code',
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: (result != null)
+                    ? Text(
+                        // '   Type: ${describeEnum(result!.format)}
+                        '\n Data: ${result!.code}',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      )
+                    : const Center(
+                        child: Text(
+                          'Scan a code!',
                           style: TextStyle(color: Colors.white),
                         ),
-                ),
+                      ),
               ),
             ),
           )
