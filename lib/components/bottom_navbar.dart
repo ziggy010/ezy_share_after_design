@@ -38,7 +38,7 @@ class _BottomNavigationBarOneState extends State<BottomNavigationBarOne> {
           selectedFontSize: 10,
           unselectedFontSize: 10,
           selectedLabelStyle: TextStyle(
-            fontFamily: 'manrope',
+            fontFamily: 'poppins',
           ),
           onTap: (index) {
             setState(() {

@@ -1,7 +1,11 @@
+import 'package:ezy_share_got_design/components/free_design.dart';
 import 'package:ezy_share_got_design/constants.dart';
 import 'package:ezy_share_got_design/screens/qr_code.dart';
+import 'package:ezy_share_got_design/screens/share_qr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../components/premium_design.dart';
 
 class QrScanPage extends StatefulWidget {
   static const String id = 'QrScanPage';
@@ -13,22 +17,24 @@ class QrScanPage extends StatefulWidget {
 class _QrScanPageState extends State<QrScanPage> {
   @override
   Widget build(BuildContext context) {
-    Color unSelectedText = Color(0xFF585664);
+    Color unSelectedText = const Color(0xFF585664);
     bool containerSelected = true;
 
     Color selectedButtonColor = kContainerPrimaryColor;
 
     Color notSelectedButtonColor = Colors.transparent;
 
-    Color notSelectedTextColor = Color(0xFF585664);
+    Color notSelectedTextColor = const Color(0xFF585664);
+    PageController _controller = PageController();
 
     bool pageSelected = true;
 
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: kNavbarColor,
-        title: Text(
+        title: const Text(
           'QR Scan',
           style: kNavbarText,
         ),
@@ -36,23 +42,17 @@ class _QrScanPageState extends State<QrScanPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Container(
-            height: 700.h,
+          SizedBox(
+            height: 680.h,
             child: Stack(
               children: [
-                Container(
-                  height: 700.h,
-                  width: 370.h,
-                  color: Colors.black,
-                  child: ScanQrPage(),
-                ),
                 Padding(
                   padding: const EdgeInsets.all(24.0),
                   child: Container(
                     height: 48.h,
                     width: 312.w,
                     decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Row(
@@ -60,8 +60,8 @@ class _QrScanPageState extends State<QrScanPage> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
-                              pageSelected = true;
-                              // _controller.jumpToPage(0);
+                              pageSelected = false;
+                              _controller.jumpToPage(0);
                             });
                           },
                           child: Padding(
@@ -77,13 +77,13 @@ class _QrScanPageState extends State<QrScanPage> {
                               ),
                               child: Center(
                                 child: Text(
-                                  'Free Designs',
+                                  'QR Scan',
                                   style: TextStyle(
                                     color: pageSelected
                                         ? Colors.white
                                         : notSelectedTextColor,
                                     fontSize: 14,
-                                    fontFamily: 'manrope',
+                                    fontFamily: 'poppins',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
@@ -95,7 +95,7 @@ class _QrScanPageState extends State<QrScanPage> {
                           onTap: () {
                             setState(() {
                               pageSelected = false;
-                              // _controller.jumpToPage(1);
+                              _controller.jumpToPage(1);
                             });
                           },
                           child: Container(
@@ -109,13 +109,13 @@ class _QrScanPageState extends State<QrScanPage> {
                             ),
                             child: Center(
                               child: Text(
-                                'Premium Designs',
+                                'Share QR',
                                 style: TextStyle(
                                   color: pageSelected
                                       ? notSelectedTextColor
                                       : Colors.white,
                                   fontSize: 14,
-                                  fontFamily: 'manrope',
+                                  fontFamily: 'poppins',
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -124,6 +124,45 @@ class _QrScanPageState extends State<QrScanPage> {
                         ),
                       ],
                     ),
+                  ),
+                ),
+                Flexible(
+                  child: Stack(
+                    children: [
+                      PageView(
+                        controller: _controller,
+                        onPageChanged: (value) {
+                          setState(() {
+                            if (value == 0) {
+                              pageSelected = true;
+                            } else {
+                              pageSelected = false;
+                            }
+                          });
+                        },
+                        children: [
+                          Flexible(
+                            child: Container(
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    ShareQR(),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Flexible(
+                            child: Container(
+                              height: 600.h,
+                              width: 450.h,
+                              color: Colors.black,
+                              child: ScanQrPage(),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ],

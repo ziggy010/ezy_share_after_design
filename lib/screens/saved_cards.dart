@@ -1,4 +1,3 @@
-import 'package:ezy_share_got_design/components/bottom_navbar.dart';
 import 'package:ezy_share_got_design/components/free_design.dart';
 import 'package:ezy_share_got_design/constants.dart';
 import 'package:flutter/material.dart';
@@ -229,7 +228,7 @@ class _SavedCardState extends State<SavedCard>
                         style: TextStyle(
                           color: Color(0xFFB2B2B3),
                           fontSize: 10.sp,
-                          fontFamily: 'manrope',
+                          fontFamily: 'poppins',
                         ),
                       )
                     ],
@@ -253,7 +252,7 @@ class _SavedCardState extends State<SavedCard>
                       style: TextStyle(
                         color: kNavbarColor,
                         fontSize: 10.sp,
-                        fontFamily: 'manrope',
+                        fontFamily: 'poppins',
                       ),
                     )
                   ],

@@ -43,7 +43,7 @@ class ProfileContainers extends StatelessWidget {
                       contentTitle,
                       style: TextStyle(
                         color: Color(0xFF585664),
-                        fontFamily: 'manrope',
+                        fontFamily: 'poppins',
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
                       ),
