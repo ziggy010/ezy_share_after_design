@@ -21,12 +21,15 @@ class VisitingCard extends StatelessWidget {
         padding: const EdgeInsets.all(24.0),
         child: Column(
           children: [
-            Container(
-              height: 192.h,
-              width: 312.w,
-              decoration: BoxDecoration(
-                color: kNavbarColor,
-                borderRadius: BorderRadius.circular(20.r),
+            Hero(
+              tag: 'card',
+              child: Container(
+                height: 192.h,
+                width: 312.w,
+                decoration: BoxDecoration(
+                  color: kNavbarColor,
+                  borderRadius: BorderRadius.circular(20.r),
+                ),
               ),
             ),
             SizedBox(
