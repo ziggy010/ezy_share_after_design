@@ -151,7 +151,7 @@ class _SavedCardState extends State<SavedCard>
                   width: 187.w,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.r),
                   ),
                   child: Column(children: [
                     QrContent(
@@ -170,7 +170,7 @@ class _SavedCardState extends State<SavedCard>
           ],
         ),
         floatingActionButton: CircleAvatar(
-          radius: 35,
+          radius: 35.r,
           backgroundColor: kNavbarColor,
           child: Stack(
             children: [
