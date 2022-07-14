@@ -12,12 +12,19 @@ class CardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: kBackgroundColor,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+      ),
       resizeToAvoidBottomInset: false,
       backgroundColor: kBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.only(left: 30.w, top: 70.h),
+            padding: EdgeInsets.only(left: 30.w, top: 0.h),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.baseline,

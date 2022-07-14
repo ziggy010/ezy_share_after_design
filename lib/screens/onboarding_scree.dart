@@ -65,7 +65,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   controller: _controller,
                   count: 3,
                   effect: ExpandingDotsEffect(
-                    activeDotColor: Colors.white,
+                    activeDotColor: Colors.black,
                   ),
                 ),
                 isOnLastPage
