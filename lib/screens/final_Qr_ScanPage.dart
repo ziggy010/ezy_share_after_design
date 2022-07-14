@@ -16,7 +16,7 @@ class _FinalQrPageState extends State<FinalQrPage> {
 
   Color selectedContainerText = Colors.white;
 
-  Color unSelectedContainerText = Color(0xFF585664);
+  Color unSelectedContainerText = const Color(0xFF585664);
 
   bool selectedContainer = true;
 
@@ -25,7 +25,7 @@ class _FinalQrPageState extends State<FinalQrPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kNavbarColor,
-        title: Text(
+        title: const Text(
           'QR Scan',
           style: kNavbarText,
         ),

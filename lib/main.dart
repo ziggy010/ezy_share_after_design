@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
       builder: ((context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: FinalQrPage.id,
+          initialRoute: OnboardingScreen.id,
           routes: {
             OnboardingScreen.id: (context) => OnboardingScreen(),
             Homepage.id: (context) => Homepage(),
@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
             QrScanPage.id: (context) => QrScanPage(),
             ScanQrPage.id: (context) => ScanQrPage(),
             BottomNavigationBarOne.id: (context) => BottomNavigationBarOne(),
-            DocumentScan.id: (context) => DocumentScan(),
+            DocumentScan.id: (context) => const DocumentScan(),
             FinalQrPage.id: (context) => FinalQrPage(),
           },
         );

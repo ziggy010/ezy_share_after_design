@@ -2,6 +2,7 @@ import 'package:ezy_share_got_design/components/bottom_navbar.dart';
 import 'package:ezy_share_got_design/components/qr_button.dart';
 import 'package:ezy_share_got_design/constants.dart';
 import 'package:ezy_share_got_design/screens/document_scan.dart';
+import 'package:ezy_share_got_design/screens/final_Qr_ScanPage.dart';
 import 'package:ezy_share_got_design/screens/profile.dart';
 import 'package:ezy_share_got_design/screens/qr_code.dart';
 import 'package:ezy_share_got_design/screens/qr_scan_page.dart';
@@ -356,7 +357,7 @@ class _HomepageState extends State<Homepage>
                               ),
                               TextButton(
                                 onPressed: () {
-                                  Navigator.pushNamed(context, QrScanPage.id);
+                                  Navigator.pushNamed(context, FinalQrPage.id);
                                 },
                                 child: QrContent(
                                   text: 'QR Scan',
