@@ -34,6 +34,15 @@ class _FinalQrPageState extends State<FinalQrPage> {
         children: [
           PageView(
             controller: pageController,
+            onPageChanged: (value) {
+              setState(() {
+                if (value == 0) {
+                  selectedContainer = true;
+                } else {
+                  selectedContainer = false;
+                }
+              });
+            },
             children: [
               Container(
                 child: ScanQrPage(),
