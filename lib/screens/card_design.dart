@@ -73,7 +73,7 @@ class _CardDesignState extends State<CardDesign> {
                                 ? Colors.white
                                 : notSelectedTextColor,
                             fontSize: 14,
-                            fontFamily: 'manrope',
+                            fontFamily: 'poppins',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -104,7 +104,7 @@ class _CardDesignState extends State<CardDesign> {
                                 ? notSelectedTextColor
                                 : Colors.white,
                             fontSize: 14,
-                            fontFamily: 'manrope',
+                            fontFamily: 'poppins',
                             fontWeight: FontWeight.w500,
                           ),
                         ),

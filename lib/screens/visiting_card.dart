@@ -50,7 +50,7 @@ class VisitingCard extends StatelessWidget {
                       'Update Design',
                       style: TextStyle(
                         color: kNavbarColor,
-                        fontFamily: 'manrope',
+                        fontFamily: 'poppins',
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w500,
                       ),
@@ -69,7 +69,7 @@ class VisitingCard extends StatelessWidget {
                       'Edit Information',
                       style: TextStyle(
                         color: kNavbarColor,
-                        fontFamily: 'manrope',
+                        fontFamily: 'poppins',
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w500,
                       ),
@@ -98,7 +98,7 @@ class VisitingCard extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 18.sp,
-                          fontFamily: 'manrope',
+                          fontFamily: 'poppins',
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -111,7 +111,7 @@ class VisitingCard extends StatelessWidget {
                           'Scan this QR code to add this card to your account',
                           style: TextStyle(
                             color: Color(0x60211F30),
-                            fontFamily: 'manrope',
+                            fontFamily: 'poppins',
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w500,
                           ),
