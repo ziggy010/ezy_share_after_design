@@ -30,7 +30,7 @@ class _QrScanPageState extends State<QrScanPage> {
     bool pageSelected = true;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.blue,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: kNavbarColor,

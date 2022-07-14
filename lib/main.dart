@@ -15,6 +15,8 @@ import 'package:ezy_share_got_design/screens/visiting_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'screens/final_Qr_ScanPage.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -34,7 +36,7 @@ class _MyAppState extends State<MyApp> {
       builder: ((context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: OnboardingScreen.id,
+          initialRoute: FinalQrPage.id,
           routes: {
             OnboardingScreen.id: (context) => OnboardingScreen(),
             Homepage.id: (context) => Homepage(),
@@ -50,6 +52,7 @@ class _MyAppState extends State<MyApp> {
             ScanQrPage.id: (context) => ScanQrPage(),
             BottomNavigationBarOne.id: (context) => BottomNavigationBarOne(),
             DocumentScan.id: (context) => DocumentScan(),
+            FinalQrPage.id: (context) => FinalQrPage(),
           },
         );
       }),
