@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
       builder: ((context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: FinalQrPage.id,
+          initialRoute: OnboardingScreen.id,
           routes: {
             OnboardingScreen.id: (context) => OnboardingScreen(),
             Homepage.id: (context) => Homepage(),
