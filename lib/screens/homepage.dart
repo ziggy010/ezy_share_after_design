@@ -128,8 +128,24 @@ class _HomepageState extends State<Homepage>
     return (await showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: new Text('Are you sure?'),
-            content: new Text('Do you want to exit an App'),
+            title: new Text(
+              'Are you sure?',
+              style: TextStyle(
+                fontSize: 16.sp,
+                fontFamily: 'poppins',
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            content: new Text(
+              'Do you want to exit an App',
+              style: TextStyle(
+                fontSize: 14.sp,
+                fontFamily: 'poppins',
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             actions: <Widget>[
               TextButton(
                 onPressed: () => Navigator.of(context).pop(false),
