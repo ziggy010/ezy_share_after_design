@@ -83,6 +83,8 @@ class _SavedCardState extends State<SavedCard>
     });
   }
 
+  bool isAlphabetical = false;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -168,6 +170,12 @@ class _SavedCardState extends State<SavedCard>
                         ),
                         itemBuilder: (context) => [
                           PopupMenuItem(
+                            onTap: () {
+                              setState(() {
+                                isAlphabetical = !isAlphabetical;
+                                print(isAlphabetical);
+                              });
+                            },
                             child: Padding(
                               padding: EdgeInsets.only(
                                 top: 16.h,
@@ -238,7 +246,14 @@ class _SavedCardState extends State<SavedCard>
                     child: ListView.builder(
                       itemCount: allCardData.length,
                       itemBuilder: ((context, index) {
-                        final data = allCardData[index];
+                        final sortedItems = allCardData
+                          ..sort(
+                            ((a, b) => isAlphabetical
+                                ? a.title.compareTo(b.title)
+                                : a.title.compareTo(a.title)),
+                          );
+
+                        final data = sortedItems[index];
 
                         return Container(
                           margin: EdgeInsets.only(bottom: 10.h),
