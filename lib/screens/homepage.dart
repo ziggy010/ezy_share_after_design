@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:ezy_share_got_design/provider/theme_provider.dart';
@@ -23,7 +22,7 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  final SwiperController _controllerSwiper = SwiperController();
+  SwiperController _controllerSwiper = SwiperController();
 
   @override
   void initState() {
@@ -40,47 +39,10 @@ class _HomepageState extends State<Homepage>
     super.dispose();
   }
 
-  Future<bool> _onwillPop() async {
-    return (await showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text(
-              'Are you sure?',
-              style: TextStyle(
-                fontSize: 14.sp,
-                fontFamily: 'poppins',
-                color: Colors.black,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            content: Text(
-              'Do you want to exit an App',
-              style: TextStyle(
-                fontSize: 12.sp,
-                fontFamily: 'poppins',
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(false),
-                child: const Text('No'),
-              ),
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(true),
-                child: const Text('Yes'),
-              ),
-            ],
-          ),
-        )) ??
-        false;
-  }
-
   int onCardNumber = 0;
 
-  Color primaryCardColor = const Color(0xFF585CE5);
-  Color secondaryCardColor = const Color(0xFFC5C6F7);
+  Color primaryCardColor = Color(0xFF585CE5);
+  Color secondaryCardColor = Color(0xFFC5C6F7);
 
   HomeCardInfo _homeCardInfo = HomeCardInfo(kNavbarColor);
 
@@ -135,7 +97,7 @@ class _HomepageState extends State<Homepage>
     });
   }
 
-  Color blurBackground = const Color(0xFFAFAFD4);
+  Color blurBackground = Color(0xFFAFAFD4);
 
   Color finalBackgroundColor = kBackgroundColor;
 
@@ -165,582 +127,337 @@ class _HomepageState extends State<Homepage>
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.dark,
-        child: AnimatedContainer(
-          duration: Duration(milliseconds: 700),
-          curve: Curves.fastOutSlowIn,
-          color: finalBackgroundColor,
-          child: Padding(
-            padding: EdgeInsets.only(
-              left: 24.w,
-              top: 70.h,
-              right: 24.w,
-              bottom: 18.h,
-            ),
-            child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Hi, Bibek',
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              fontFamily: 'poppins',
-                              color: Color(0x55211F30),
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10.h,
-                          ),
-                          Text(
-                            'Welcome back!',
-                            style: TextStyle(
-                                fontSize: 18.sp,
-                                fontFamily: 'poppins',
-                                color: Colors.black,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, Profile.id);
-                        },
-                        child: CircleAvatar(
-                          radius: 24,
-                          backgroundImage: NetworkImage(
-                            'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80',
+      body: AnimatedContainer(
+        duration: Duration(milliseconds: 700),
+        curve: Curves.fastOutSlowIn,
+        color: finalBackgroundColor,
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: 24,
+            top: 70,
+            right: 24,
+            bottom: 30,
+          ),
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Hi, Bibek',
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            fontFamily: 'poppins',
+                            color: Color(0x55211F30),
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Container(
-                    constraints: BoxConstraints(
-                      maxHeight: 30.h,
-                    ),
-                    child: Row(
-                      children: [
-                        Flexible(
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: [
-                              Text(
-                                getTitleFirst(onCardNumber),
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20.sp,
-                                  fontFamily: 'poppins',
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 24.w,
-                              ),
-                              Text(
-                                getTitleSecond(onCardNumber),
-                                style: TextStyle(
-                                  color: Color(0x34211F30),
-                                  fontFamily: 'poppins',
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 24.w,
-                              ),
-                              Text(
-                                getTitleThird(onCardNumber),
-                                style: TextStyle(
-                                  color: Color(0x34211F30),
-                                  fontFamily: 'poppins',
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ],
-                          ),
+                        SizedBox(
+                          width: 10.h,
+                        ),
+                        Text(
+                          'Welcome back!',
+                          style: TextStyle(
+                              fontSize: 18.sp,
+                              fontFamily: 'poppins',
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500),
                         ),
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 11.h,
-                  ),
-                  Container(
-                    height: 3.h,
-                    width: 55.h,
-                    color: Color(0xFF7B66FF),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: 9.w,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, Profile.id);
+                      },
+                      child: CircleAvatar(
+                        radius: 24,
+                        backgroundImage: NetworkImage(
+                          'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80',
+                        ),
+                      ),
                     ),
-                    child: Stack(
-                      children: [
-                        Container(
-                          height: 430.h,
-                          child: Hero(
-                            tag: 'card',
-                            child: Swiper(
-                              pagination: SwiperPagination(
-                                margin: EdgeInsets.only(top: 50.h),
-                                builder: const DotSwiperPaginationBuilder(
-                                  activeColor: Color(0xFF5D5FEF),
-                                  color: Color(0x305D5FEF),
-                                ),
-                              ),
-                              onIndexChanged: (value) {
-                                setState(() {
-                                  onCardNumber = value;
-                                });
-                              },
-                              itemCount: 3,
-                              itemWidth: 230.w,
-                              layout: SwiperLayout.STACK,
-                              itemBuilder: (context, index) {
-                                return Stack(
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        bottom: 25.h,
-                                      ),
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          Navigator.pushNamed(
-                                              context, VisitingCard.id);
-                                        },
-                                        child: Card(
-                                          elevation: 8,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(30),
-                                          ),
-                                          color: cards[index].cardColor,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(50.0),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.stretch,
-                                              children: [
-                                                SizedBox(
-                                                  height: 20.h,
-                                                ),
-                                                Text(
-                                                  cards[index].heading,
-                                                  style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 30.sp,
-                                                  ),
-                                                )
-                                              ],
-    return WillPopScope(
-        onWillPop: _onwillPop,
-        child: Scaffold(
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          body: AnimatedContainer(
-            duration: const Duration(milliseconds: 700),
-            curve: Curves.fastOutSlowIn,
-            color: finalBackgroundColor,
-            child: Padding(
-              padding: EdgeInsets.only(
-                left: 24.w,
-                top: 70.h,
-                right: 24.w,
-                bottom: 18.h,
-              ),
-              child: Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                  ],
+                ),
+                SizedBox(
+                  height: 36.h,
+                ),
+                Container(
+                  constraints: BoxConstraints(
+                    maxHeight: 30.h,
+                  ),
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
                           children: [
                             Text(
-                              'Hi, Bibek',
+                              getTitleFirst(onCardNumber),
                               style: TextStyle(
-                                fontSize: 14.sp,
+                                color: Colors.black,
+                                fontSize: 20.sp,
                                 fontFamily: 'poppins',
-                                color: const Color(0x55211F30),
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 24.w,
+                            ),
+                            Text(
+                              getTitleSecond(onCardNumber),
+                              style: TextStyle(
+                                color: Color(0x34211F30),
+                                fontFamily: 'poppins',
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                             SizedBox(
-                              width: 10.h,
+                              width: 24.w,
                             ),
                             Text(
-                              'Welcome back!',
+                              getTitleThird(onCardNumber),
                               style: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontFamily: 'poppins',
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500),
+                                color: Color(0x34211F30),
+                                fontFamily: 'poppins',
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ],
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, Profile.id);
-                          },
-                          child: const CircleAvatar(
-                            radius: 24,
-                            backgroundImage: NetworkImage(
-                              'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80',
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 11.h,
+                ),
+                Container(
+                  height: 3.h,
+                  width: 55.h,
+                  color: Color(0xFF7B66FF),
+                ),
+                SizedBox(
+                  height: 30.h,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 9.w,
+                  ),
+                  child: Stack(
+                    children: [
+                      Container(
+                        height: 430.h,
+                        child: Hero(
+                          tag: 'card',
+                          child: Swiper(
+                            pagination: SwiperPagination(
+                              margin: EdgeInsets.only(top: 50.h),
+                              builder: const DotSwiperPaginationBuilder(
+                                activeColor: Color(0xFF5D5FEF),
+                                color: Color(0x305D5FEF),
+                              ),
                             ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 30.h,
-                    ),
-                    Container(
-                      constraints: BoxConstraints(
-                        maxHeight: 30.h,
-                      ),
-                      child: Row(
-                        children: [
-                          Flexible(
-                            child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              children: [
-                                Text(
-                                  getTitleFirst(onCardNumber),
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20.sp,
-                                    fontFamily: 'poppins',
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 24.w,
-                                ),
-                                Text(
-                                  getTitleSecond(onCardNumber),
-                                  style: TextStyle(
-                                    color: const Color(0x34211F30),
-                                    fontFamily: 'poppins',
-                                    fontSize: 20.sp,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 24.w,
-                                ),
-                                Text(
-                                  getTitleThird(onCardNumber),
-                                  style: TextStyle(
-                                    color: const Color(0x34211F30),
-                                    fontFamily: 'poppins',
-                                    fontSize: 20.sp,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 11.h,
-                    ),
-                    Container(
-                      height: 3.h,
-                      width: 55.h,
-                      color: const Color(0xFF7B66FF),
-                    ),
-                    SizedBox(
-                      height: 30.h,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: 9.w,
-                      ),
-                      child: Stack(
-                        children: [
-                          Container(
-                            height: 430.h,
-                            child: Hero(
-                              tag: 'card',
-                              child: Swiper(
-                                pagination: SwiperPagination(
-                                  margin: EdgeInsets.only(top: 50.h),
-                                  builder: const DotSwiperPaginationBuilder(
-                                    activeColor: Color(0xFF5D5FEF),
-                                    color: Color(0x305D5FEF),
-                                  ),
-                                ),
-                                onIndexChanged: (value) {
-                                  setState(() {
-                                    onCardNumber = value;
-                                  });
-                                },
-                                itemCount: 3,
-                                itemWidth: 230.w,
-                                layout: SwiperLayout.STACK,
-                                itemBuilder: (context, index) {
-                                  return Stack(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                          bottom: 25.h,
+                            onIndexChanged: (value) {
+                              setState(() {
+                                onCardNumber = value;
+                              });
+                            },
+                            itemCount: 3,
+                            itemWidth: 230.w,
+                            layout: SwiperLayout.STACK,
+                            itemBuilder: (context, index) {
+                              return Stack(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      bottom: 25.h,
+                                    ),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.pushNamed(
+                                            context, VisitingCard.id);
+                                      },
+                                      child: Card(
+                                        elevation: 8,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                         ),
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            Navigator.pushNamed(
-                                                context, VisitingCard.id);
-                                          },
-                                          child: Card(
-                                            elevation: 8,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(30),
-                                            ),
-                                            color: cards[index].cardColor,
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(50.0),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.stretch,
-                                                children: [
-                                                  SizedBox(
-                                                    height: 20.h,
-                                                  ),
-                                                  Text(
-                                                    cards[index].heading,
-                                                    style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 30.sp,
-                                                    ),
-                                                  )
-                                                ],
+                                        color: cards[index].cardColor,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(50.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.stretch,
+                                            children: [
+                                              SizedBox(
+                                                height: 20.h,
                                               ),
-                                            ),
+                                              Text(
+                                                cards[index].heading,
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 30.sp,
+                                                ),
+                                              )
+                                            ],
                                           ),
                                         ),
-                                      );))));)]])
-
-                              },
-                            ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
                           ),
                         ),
-                        Positioned(
-                          left: 67.w,
-                          bottom: 20.h,
-                          child: AnimatedOpacity(
-                            duration: const Duration(milliseconds: 700),
-                            opacity: currentOpacity,
-                            curve: Curves.fastOutSlowIn,
-                            child: Container(
-                              height: _containerHeight,
-                              width: 187.w,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12.r),
-                              ),
-                              child: Column(children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.pushNamed(
-                                        context, DocumentScan.id);
-                                  },
-                                  child: QrContent(
-                                    text: 'Citizenship',
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.pushNamed(
-                                        context, DocumentScan.id);
-                                  },
-                                  child: QrContent(
-                                    text: 'Passport',
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.pushNamed(
-                                        context, FinalQrPage.id);
-                                  },
-                                  child: QrContent(
-                                    text: 'QR Scan',
-                                  ),
-                                )
-                              ]),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-
-                                   
-                                  
-                             
-                          Positioned(
-                            left: 67.w,
-                            bottom: 20.h,
-                            child: AnimatedOpacity(
-                              duration: const Duration(milliseconds: 700),
-                              opacity: currentOpacity,
-                              curve: Curves.fastOutSlowIn,
-                              child: Container(
-                                height: _containerHeight,
-                                width: 187.w,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(12.r),
-                                ),
-                                child: Column(children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context, DocumentScan.id);
-                                    },
-                                    child: QrContent(
-                                      text: 'Citizenship',
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context, DocumentScan.id);
-                                    },
-                                    child: QrContent(
-                                      text: 'Passport',
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context, FinalQrPage.id);
-                                    },
-                                    child: QrContent(
-                                      text: 'QR Scan',
-                                    ),
-                                  )
-                                ]),
-                              ),
-                            ),
-                          ),
-                       
                       ),
-                    ),
-                
-                ),
-
-              ),
-            ),
-      
-          floatingActionButton: CircleAvatar(
-            radius: 35.r,
-            backgroundColor: kNavbarColor,
-            child: Stack(
-              children: [
-                FloatingActionButton(
-                  elevation: 0,
-                  onPressed: () {
-                    setState(() {
-                      isQrContentVisible = !isQrContentVisible;
-                      finalImage = isQrContentVisible ? after : before;
-                      updateOpacity();
-                      updateBackgroundColor();
-                      updateContainerHeight();
-                    });
-                    if (_controller.isCompleted) {
-                      _controller.reverse();
-                    } else {
-                      _controller.forward();
-                    }
-                  },
-                  child: RotationTransition(
-                    turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
-                    child: Image.asset(
-                      'lib/icons/$finalImage.png',
-                      color: Colors.white,
-                      height: 20,
-                    ),
+                      Positioned(
+                        left: 67,
+                        bottom: 20,
+                        child: AnimatedOpacity(
+                          duration: const Duration(milliseconds: 700),
+                          opacity: currentOpacity,
+                          curve: Curves.fastOutSlowIn,
+                          child: Container(
+                            height: _containerHeight,
+                            width: 187.w,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Column(children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(context, DocumentScan.id);
+                                },
+                                child: QrContent(
+                                  text: 'Citizenship',
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(context, DocumentScan.id);
+                                },
+                                child: QrContent(
+                                  text: 'Passport',
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(context, FinalQrPage.id);
+                                },
+                                child: QrContent(
+                                  text: 'QR Scan',
+                                ),
+                              )
+                            ]),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  backgroundColor: kNavbarColor,
                 ),
               ],
             ),
           ),
-          bottomNavigationBar: Container(
-            height: 107.h,
-            color: Colors.white,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 70.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        ),
+      ),
+      floatingActionButton: CircleAvatar(
+        radius: 35,
+        backgroundColor: kNavbarColor,
+        child: Stack(
+          children: [
+            FloatingActionButton(
+              elevation: 0,
+              onPressed: () {
+                setState(() {
+                  isQrContentVisible = !isQrContentVisible;
+                  finalImage = isQrContentVisible ? after : before;
+                  updateOpacity();
+                  updateBackgroundColor();
+                  updateContainerHeight();
+                });
+                if (_controller.isCompleted) {
+                  _controller.reverse();
+                } else {
+                  _controller.forward();
+                }
+              },
+              child: RotationTransition(
+                turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
+                child: Image.asset(
+                  'lib/icons/$finalImage.png',
+                  color: Colors.white,
+                  height: 20,
+                ),
+              ),
+              backgroundColor: kNavbarColor,
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        height: 107.h,
+        color: Colors.white,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 70.w),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: const Color(0xFFF2F6FD),
-                        child: Image.asset('lib/icons/Vector.png'),
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Text(
-                        'My Cards',
-                        style: TextStyle(
-                          color: kNavbarColor,
-                          fontSize: 10.sp,
-                          fontFamily: 'poppins',
-                        ),
-                      )
-                    ],
+                  CircleAvatar(
+                    backgroundColor: Color(0xFFF2F6FD),
+                    child: Image.asset('lib/icons/Vector.png'),
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, SavedCard.id);
-                        },
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Image.asset('lib/icons/Bookmark.png'),
-                        ),
-                      ),
-                      Text(
-                        'Saved Cards',
-                        style: TextStyle(
-                          color: const Color(0xFFB2B2B3),
-                          fontSize: 10.sp,
-                          fontFamily: 'poppins',
-                        ),
-                      )
-                    ],
+                  SizedBox(
+                    height: 2.h,
                   ),
+                  Text(
+                    'My Cards',
+                    style: TextStyle(
+                      color: kNavbarColor,
+                      fontSize: 10.sp,
+                      fontFamily: 'poppins',
+                    ),
+                  )
                 ],
               ),
-            ),
-          ));
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, SavedCard.id);
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      child: Image.asset('lib/icons/Bookmark.png'),
+                    ),
+                  ),
+                  Text(
+                    'Saved Cards',
+                    style: TextStyle(
+                      color: Color(0xFFB2B2B3),
+                      fontSize: 10.sp,
+                      fontFamily: 'poppins',
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
