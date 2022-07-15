@@ -1,4 +1,5 @@
 import 'package:ezy_share_got_design/components/bottom_navbar.dart';
+import 'package:ezy_share_got_design/provider/theme_provider.dart';
 import 'package:ezy_share_got_design/screens/card_design.dart';
 import 'package:ezy_share_got_design/screens/card_details.dart';
 import 'package:ezy_share_got_design/screens/darkmode.dart';
@@ -35,6 +36,9 @@ class _MyAppState extends State<MyApp> {
       designSize: const Size(360, 800),
       builder: ((context, child) {
         return MaterialApp(
+          themeMode: ThemeMode.system,
+          theme: MyThemes.lightTheme,
+          darkTheme: MyThemes.darkTheme,
           debugShowCheckedModeBanner: false,
           initialRoute: Homepage.id,
           routes: {

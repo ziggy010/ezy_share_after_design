@@ -4,6 +4,7 @@ import 'package:ezy_share_got_design/constants.dart';
 import 'package:ezy_share_got_design/screens/homepage.dart';
 import 'package:ezy_share_got_design/screens/register_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:ezy_share_got_design/provider/theme_provider.dart';
 
 class SignIn extends StatefulWidget {
   static const String id = 'signin';
@@ -18,6 +19,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackgroundColor,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: kBackgroundColor,
@@ -26,7 +28,6 @@ class _SignInState extends State<SignIn> {
         ),
       ),
       resizeToAvoidBottomInset: false,
-      backgroundColor: kBackgroundColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(

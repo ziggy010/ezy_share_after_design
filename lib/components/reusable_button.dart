@@ -26,7 +26,7 @@ class ReusableButton extends StatelessWidget {
           specificText,
           style: textStyle,
         ),
-        height: 70.h,
+        height: 65.h,
         width: width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),

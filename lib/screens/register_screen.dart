@@ -111,24 +111,27 @@ class RegisterScreen extends StatelessWidget {
             Container(
               child: Column(
                 children: [
-                  Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, SignIn.id);
-                      },
-                      child: Text.rich(
-                        TextSpan(
-                          text: 'Already have an account?  ',
-                          style: kRegBodySmallText,
-                          children: [
-                            TextSpan(
-                              text: 'Login',
-                              style: kRegBodySmallText.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
+                  Padding(
+                    padding: EdgeInsets.only(right: 30.w),
+                    child: Center(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, SignIn.id);
+                        },
+                        child: Text.rich(
+                          TextSpan(
+                            text: 'Already have an account?  ',
+                            style: kRegBodySmallText,
+                            children: [
+                              TextSpan(
+                                text: 'Login',
+                                style: kRegBodySmallText.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -136,14 +139,17 @@ class RegisterScreen extends StatelessWidget {
                   SizedBox(
                     height: 20.h,
                   ),
-                  ReusableButton(
-                      specificText: 'More',
-                      specificColor: Color(0xFF585CE5),
-                      textStyle: kRegButtonText,
-                      width: 300.w,
-                      onTap: () {
-                        Navigator.pushNamed(context, CardScreen.id);
-                      }),
+                  Padding(
+                    padding: EdgeInsets.only(right: 28.w),
+                    child: ReusableButton(
+                        specificText: 'More',
+                        specificColor: Color(0xFF585CE5),
+                        textStyle: kRegButtonText,
+                        width: 300.w,
+                        onTap: () {
+                          Navigator.pushNamed(context, CardScreen.id);
+                        }),
+                  ),
                 ],
               ),
             ),

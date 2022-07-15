@@ -14,8 +14,8 @@ class CardScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: kBackgroundColor,
-        iconTheme: IconThemeData(
+        backgroundColor: Colors.transparent,
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
       ),
@@ -52,10 +52,10 @@ class CardScreen extends StatelessWidget {
                             style: kRegWelcomeText.copyWith(letterSpacing: 3.0),
                           ),
                           SizedBox(
-                            height: 10.h,
+                            height: 5.h,
                           ),
                           Text(
-                            'Business card.',
+                            'Business card',
                             style: kRegWelcomeText.copyWith(letterSpacing: 3.0),
                           ),
                         ],
@@ -64,115 +64,110 @@ class CardScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: 50.h,
+                  height: 15.h,
                 ),
                 Padding(
                   padding: EdgeInsets.only(right: 30.w),
                   child: Container(
                     child: Column(
                       children: [
+                        // Padding(
+                        //   padding: EdgeInsets.only(right: 220.h),
+                        //   child: Text(
+                        //     'All field are required to be filled',
+                        //     style: kRegReqText.copyWith(letterSpacing: 0),
+                        //   ),
+                        // ),
+                        SizedBox(
+                          height: 5.h,
+                        ),
                         ReusableTextField(
-                          hintText: 'First name',
-                          labelText: 'First name',
+                          hintText: 'Full name*',
+                          labelText: 'Full name',
                           onChanged: (value) {},
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 18.h,
                         ),
                         ReusableTextField(
-                          hintText: 'Middle name',
-                          labelText: 'Middle name',
-                          onChanged: (value) {},
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        ReusableTextField(
-                          hintText: 'Last name',
-                          labelText: 'Last name',
-                          onChanged: (value) {},
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        ReusableTextField(
-                          hintText: 'Profession',
+                          hintText: 'Profession*',
                           labelText: 'Profession',
                           onChanged: (value) {},
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 18.h,
                         ),
                         ReusableTextField(
-                          hintText: 'Company name',
+                          hintText: 'Company name*',
                           labelText: 'Company name',
                           onChanged: (value) {},
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 18.h,
                         ),
                         ReusableTextField(
-                          hintText: 'Designation',
+                          hintText: 'Designation*',
                           labelText: 'Designation',
                           onChanged: (value) {},
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 18.h,
                         ),
                         ReusableTextField(
-                          hintText: 'Contact number',
+                          hintText: 'Contact number*',
                           labelText: 'Contact number',
                           onChanged: (value) {},
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 18.h,
                         ),
                         ReusableTextField(
-                          hintText: 'Email',
+                          hintText: 'Email*',
                           labelText: 'Email',
                           onChanged: (value) {},
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 18.h,
                         ),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 50.h,
-                ),
+                // SizedBox(
+                //   height: 50.h,
+                // ),
                 Column(
                   children: [
-                    Center(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, SignIn.id);
-                        },
-                        child: Text.rich(
-                          TextSpan(
-                            text: 'Already have an account?  ',
-                            style: kRegBodySmallText,
-                            children: [
-                              TextSpan(
-                                text: 'Login',
-                                style: kBodySmallText.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                    Padding(
+                      padding: const EdgeInsets.only(right: 35.0),
+                      child: Center(
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, SignIn.id);
+                          },
+                          child: Text.rich(
+                            TextSpan(
+                              text: 'Already have an account?  ',
+                              style: kRegBodySmallText,
+                              children: [
+                                TextSpan(
+                                  text: 'Login',
+                                  style: kBodySmallText.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFF585CE5),
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
                     SizedBox(
-                      height: 20.h,
+                      height: 10.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.only(
-                        bottom: 50.h,
-                      ),
+                      padding: EdgeInsets.only(right: 26.w),
                       child: ReusableButton(
                         specificText: 'Register',
                         specificColor: Color(0xFF585CE5),
@@ -181,6 +176,9 @@ class CardScreen extends StatelessWidget {
                         onTap: () {},
                       ),
                     ),
+                    // SizedBox(
+                    //   height: 20.h,
+                    // ),
                   ],
                 ),
               ],

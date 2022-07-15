@@ -33,14 +33,16 @@ class ReusableTextField extends StatelessWidget {
         fontFamily: 'poppins',
       ),
       decoration: InputDecoration(
+        fillColor: Color(0xFFE2E3FF),
+        filled: true,
         suffixIcon: icon,
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey.shade700),
+          borderSide: BorderSide(color: Color(0xFFE2E3FF)),
           borderRadius: BorderRadius.circular(15.r),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.grey.shade700,
+            color: Colors.blue.shade200,
           ),
           borderRadius: BorderRadius.circular(15.r),
         ),

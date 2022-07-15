@@ -1,19 +1,14 @@
-import 'package:ezy_share_got_design/components/bottom_navbar.dart';
-import 'package:ezy_share_got_design/components/qr_button.dart';
-import 'package:ezy_share_got_design/constants.dart';
-import 'package:ezy_share_got_design/screens/document_scan.dart';
-import 'package:ezy_share_got_design/screens/final_Qr_ScanPage.dart';
-import 'package:ezy_share_got_design/screens/profile.dart';
-import 'package:ezy_share_got_design/screens/qr_code.dart';
-import 'package:ezy_share_got_design/screens/qr_scan_page.dart';
-import 'package:ezy_share_got_design/screens/saved_cards.dart';
-import 'package:ezy_share_got_design/screens/visiting_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:ezy_share_got_design/provider/theme_provider.dart';
+import 'package:ezy_share_got_design/constants.dart';
 import 'package:ezy_share_got_design/data.dart';
-import 'package:indexed/indexed.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:ezy_share_got_design/screens/document_scan.dart';
+import 'package:ezy_share_got_design/screens/final_Qr_ScanPage.dart';
+import 'package:ezy_share_got_design/screens/profile.dart';
+import 'package:ezy_share_got_design/screens/saved_cards.dart';
+import 'package:ezy_share_got_design/screens/visiting_card.dart';
 
 import '../components/qr_content.dart';
 
@@ -137,11 +132,11 @@ class _HomepageState extends State<Homepage>
         curve: Curves.fastOutSlowIn,
         color: finalBackgroundColor,
         child: Padding(
-          padding: const EdgeInsets.only(
-            left: 24,
-            top: 70,
-            right: 24,
-            bottom: 30,
+          padding: EdgeInsets.only(
+            left: 24.w,
+            top: 70.h,
+            right: 24.w,
+            bottom: 18.h,
           ),
           child: Container(
             child: Column(

@@ -79,6 +79,11 @@ var kBodySmallText = TextStyle(
   fontSize: 12.sp,
   fontFamily: 'poppins',
 );
+var kRegReqText = TextStyle(
+  color: Colors.red,
+  fontSize: 7.sp,
+  fontFamily: 'poppins',
+);
 
 var kRegBodySmallText = TextStyle(
   color: Colors.black,
@@ -99,7 +104,7 @@ var kBodyTextStyle = TextStyle(
 );
 var kRegBodyTextStyle = TextStyle(
   color: Colors.black,
-  fontSize: 26.sp,
+  fontSize: 20.sp,
   fontWeight: FontWeight.bold,
   fontFamily: 'poppins',
 );
@@ -111,7 +116,7 @@ var kWelcomeText = TextStyle(
 );
 var kRegWelcomeText = TextStyle(
   color: Colors.black,
-  fontSize: 26.sp,
+  fontSize: 18.sp,
   fontFamily: 'poppinsLight',
 );
 
