@@ -1,6 +1,7 @@
 import 'package:ezy_share_got_design/constants.dart';
 import 'package:ezy_share_got_design/screens/card_design.dart';
 import 'package:ezy_share_got_design/screens/saved_cards.dart';
+import 'package:ezy_share_got_design/screens/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,6 +15,7 @@ class Profile extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: kNavbarColor,
         title: Text(
           'Profile',
@@ -54,9 +56,14 @@ class Profile extends StatelessWidget {
               prefixIcon: 'Plus',
               contentTitle: 'Follow and Invite freinds',
             ),
-            ProfileContainers(
-              prefixIcon: 'Logout',
-              contentTitle: 'Sign Out',
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, SignIn.id);
+              },
+              child: ProfileContainers(
+                prefixIcon: 'Logout',
+                contentTitle: 'Sign Out',
+              ),
             ),
           ],
         ),

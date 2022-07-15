@@ -2,6 +2,8 @@ import 'package:ezy_share_got_design/components/free_design.dart';
 import 'package:ezy_share_got_design/components/saved_cards_data.dart';
 import 'package:ezy_share_got_design/constants.dart';
 import 'package:ezy_share_got_design/screens/Saved_card_new_page.dart';
+import 'package:ezy_share_got_design/screens/document_scan.dart';
+import 'package:ezy_share_got_design/screens/final_Qr_ScanPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -91,6 +93,7 @@ class _SavedCardState extends State<SavedCard>
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
+          elevation: 0,
           backgroundColor: kNavbarColor,
           title: Text(
             'Saved Cards',
@@ -292,14 +295,29 @@ class _SavedCardState extends State<SavedCard>
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                   child: Column(children: [
-                    QrContent(
-                      text: 'Citizenship',
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, DocumentScan.id);
+                      },
+                      child: QrContent(
+                        text: 'Citizenship',
+                      ),
                     ),
-                    QrContent(
-                      text: 'Passport',
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, DocumentScan.id);
+                      },
+                      child: QrContent(
+                        text: 'Passport',
+                      ),
                     ),
-                    QrContent(
-                      text: 'QR Scan',
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, FinalQrPage.id);
+                      },
+                      child: QrContent(
+                        text: 'QR Scan',
+                      ),
                     )
                   ]),
                 ),

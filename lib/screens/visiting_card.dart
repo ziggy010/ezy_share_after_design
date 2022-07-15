@@ -88,6 +88,14 @@ class VisitingCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(255, 225, 225, 235),
+                      spreadRadius: 1,
+                      blurRadius: 18,
+                      offset: Offset(1, 1), // changes position of shadow
+                    ),
+                  ],
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 24.h),
@@ -124,7 +132,7 @@ class VisitingCard extends StatelessWidget {
                       Image.asset(
                         'lib/images/qr-code.png',
                         height: 160,
-                      )
+                      ),
                     ],
                   ),
                 ),
