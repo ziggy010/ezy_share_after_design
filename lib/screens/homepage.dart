@@ -189,7 +189,7 @@ class _HomepageState extends State<Homepage>
                   ],
                 ),
                 SizedBox(
-                  height: 36.h,
+                  height: 30.h,
                 ),
                 Container(
                   constraints: BoxConstraints(
@@ -325,8 +325,8 @@ class _HomepageState extends State<Homepage>
                         ),
                       ),
                       Positioned(
-                        left: 67,
-                        bottom: 20,
+                        left: 67.w,
+                        bottom: 20.h,
                         child: AnimatedOpacity(
                           duration: const Duration(milliseconds: 700),
                           opacity: currentOpacity,
@@ -336,7 +336,7 @@ class _HomepageState extends State<Homepage>
                             width: 187.w,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(12.r),
                             ),
                             child: Column(children: [
                               GestureDetector(
@@ -376,7 +376,7 @@ class _HomepageState extends State<Homepage>
         ),
       ),
       floatingActionButton: CircleAvatar(
-        radius: 35,
+        radius: 35.r,
         backgroundColor: kNavbarColor,
         child: Stack(
           children: [
