@@ -1,5 +1,7 @@
 import 'package:ezy_share_got_design/components/free_design.dart';
+import 'package:ezy_share_got_design/components/saved_cards_data.dart';
 import 'package:ezy_share_got_design/constants.dart';
+import 'package:ezy_share_got_design/screens/Saved_card_new_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,6 +18,8 @@ class SavedCard extends StatefulWidget {
 class _SavedCardState extends State<SavedCard>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+
+  TextEditingController textEditingController = TextEditingController();
 
   int currentIndex = 0;
   bool isQrContentVisible = false;
@@ -47,6 +51,8 @@ class _SavedCardState extends State<SavedCard>
 
   String finalImage = 'Scanner';
 
+  List<SavedCardData> allCardData = allSavedCardDataClass;
+
   @override
   void initState() {
     _controller = AnimationController(
@@ -60,6 +66,19 @@ class _SavedCardState extends State<SavedCard>
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  void searchCard(String query) {
+    final suggestions = allSavedCardDataClass.where((element) {
+      final bookTitle = element.title.toLowerCase();
+      final searchInput = query.toLowerCase();
+
+      return bookTitle.contains(searchInput);
+    }).toList();
+
+    setState(() {
+      allCardData = suggestions;
+    });
   }
 
   @override
@@ -89,50 +108,170 @@ class _SavedCardState extends State<SavedCard>
               ),
               child: Column(
                 children: [
-                  TextField(
-                    cursorColor: Colors.black,
-                    decoration: InputDecoration(
-                      hintText: 'Search Cards',
-                      prefixIcon: Icon(
-                        Icons.search_outlined,
-                        color: kNavbarColor,
-                        size: 30.sm,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(
-                          color: kContainerColor,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          autocorrect: false,
+                          controller: textEditingController,
+                          onChanged: searchCard,
+                          cursorColor: Colors.black,
+                          decoration: InputDecoration(
+                            hintText: 'Search Cards',
+                            prefixIcon: Icon(
+                              Icons.search_outlined,
+                              color: kNavbarColor,
+                              size: 30.sm,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: BorderSide(
+                                color: kContainerColor,
+                              ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: BorderSide(
+                                color: kNavbarColor,
+                                width: 1.5,
+                              ),
+                            ),
+                            filled: true,
+                            fillColor: kContainerColor,
+                          ),
                         ),
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
+                      SizedBox(
+                        width: 12.w,
+                      ),
+                      PopupMenuButton(
+                        offset: Offset(0, 20),
+                        color: Colors.white,
+                        elevation: 1,
+                        splashRadius: 0,
+                        position: PopupMenuPosition.under,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.r),
+                        ),
+                        constraints: BoxConstraints(
+                          minHeight: 144.h,
+                          maxWidth: 187.w,
+                        ),
+                        itemBuilder: (context) => [
+                          PopupMenuItem(
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                top: 16.h,
+                                bottom: 16.h,
+                              ),
+                              child: Container(
+                                height: 48.h,
+                                width: 155.w,
+                                decoration: BoxDecoration(
+                                  color: kContainerColor,
+                                  borderRadius: BorderRadius.circular(10.r),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'Alphabetic (A - Z)',
+                                    style: TextStyle(
+                                      color: kNavbarColor,
+                                      fontFamily: 'manrope',
+                                      fontSize: 14.sp,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          PopupMenuItem(
+                            child: Padding(
+                              padding: EdgeInsets.only(bottom: 16.h),
+                              child: Container(
+                                height: 48.h,
+                                width: 155.w,
+                                decoration: BoxDecoration(
+                                  color: kContainerColor,
+                                  borderRadius: BorderRadius.circular(10.r),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'Recently Added',
+                                    style: TextStyle(
+                                      color: kNavbarColor,
+                                      fontFamily: 'manrope',
+                                      fontSize: 14.sp,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                        child: Container(
+                          height: 55.h,
+                          width: 55.w,
+                          decoration: BoxDecoration(
+                            color: kContainerColor,
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: Center(
+                            child: Image.asset('lib/icons/Filter.png'),
+                          ),
                         ),
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(
-                          color: kNavbarColor,
-                          width: 1.5,
-                        ),
-                      ),
-                      filled: true,
-                      fillColor: kContainerColor,
-                    ),
+                    ],
                   ),
                   SizedBox(
                     height: 24.h,
                   ),
-                  Flexible(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          FreeDesign(),
-                          FreeDesign(),
-                          FreeDesign(),
-                        ],
-                      ),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: allCardData.length,
+                      itemBuilder: ((context, index) {
+                        final data = allCardData[index];
+
+                        return Container(
+                          margin: EdgeInsets.only(bottom: 10.h),
+                          child: ListTile(
+                            contentPadding: EdgeInsets.all(0),
+                            leading: CircleAvatar(
+                              radius: 22.r,
+                              backgroundColor: Color(0xFFBABCFF),
+                              child: Center(
+                                child: Text(
+                                  data.title[0].toUpperCase(),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.sp,
+                                    fontFamily: 'poppins',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            title: Text(data.title),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: ((context) {
+                                    return SavedCardNewPage(
+                                      savedCardData: data,
+                                    );
+                                  }),
+                                ),
+                              );
+                            },
+                          ),
+                        );
+                      }),
                     ),
                   ),
                 ],

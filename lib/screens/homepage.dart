@@ -157,7 +157,7 @@ class _HomepageState extends State<Homepage>
                           'Hi, Bibek',
                           style: TextStyle(
                             fontSize: 14.sp,
-                            fontFamily: 'manrope',
+                            fontFamily: 'poppins',
                             color: Color(0x55211F30),
                             fontWeight: FontWeight.w500,
                           ),
@@ -169,7 +169,7 @@ class _HomepageState extends State<Homepage>
                           'Welcome back!',
                           style: TextStyle(
                               fontSize: 18.sp,
-                              fontFamily: 'manrope',
+                              fontFamily: 'poppins',
                               color: Colors.black,
                               fontWeight: FontWeight.w500),
                         ),
@@ -206,7 +206,7 @@ class _HomepageState extends State<Homepage>
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 20.sp,
-                                fontFamily: 'manrope',
+                                fontFamily: 'poppins',
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
@@ -217,7 +217,7 @@ class _HomepageState extends State<Homepage>
                               getTitleSecond(onCardNumber),
                               style: TextStyle(
                                 color: Color(0x34211F30),
-                                fontFamily: 'manrope',
+                                fontFamily: 'poppins',
                                 fontSize: 20.sp,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -229,7 +229,7 @@ class _HomepageState extends State<Homepage>
                               getTitleThird(onCardNumber),
                               style: TextStyle(
                                 color: Color(0x34211F30),
-                                fontFamily: 'manrope',
+                                fontFamily: 'poppins',
                                 fontSize: 20.sp,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -326,37 +326,37 @@ class _HomepageState extends State<Homepage>
                       ),
                       Positioned(
                         left: 67,
-                        bottom: 0,
+                        bottom: 20,
                         child: AnimatedOpacity(
                           duration: const Duration(milliseconds: 700),
                           opacity: currentOpacity,
                           curve: Curves.fastOutSlowIn,
                           child: Container(
-                            height: 242.h,
+                            height: _containerHeight,
                             width: 187.w,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Column(children: [
-                              TextButton(
-                                onPressed: () {
+                              GestureDetector(
+                                onTap: () {
                                   Navigator.pushNamed(context, DocumentScan.id);
                                 },
                                 child: QrContent(
                                   text: 'Citizenship',
                                 ),
                               ),
-                              TextButton(
-                                onPressed: () {
+                              GestureDetector(
+                                onTap: () {
                                   Navigator.pushNamed(context, DocumentScan.id);
                                 },
                                 child: QrContent(
                                   text: 'Passport',
                                 ),
                               ),
-                              TextButton(
-                                onPressed: () {
+                              GestureDetector(
+                                onTap: () {
                                   Navigator.pushNamed(context, FinalQrPage.id);
                                 },
                                 child: QrContent(
@@ -432,7 +432,7 @@ class _HomepageState extends State<Homepage>
                     style: TextStyle(
                       color: kNavbarColor,
                       fontSize: 10.sp,
-                      fontFamily: 'manrope',
+                      fontFamily: 'poppins',
                     ),
                   )
                 ],
@@ -454,7 +454,7 @@ class _HomepageState extends State<Homepage>
                     style: TextStyle(
                       color: Color(0xFFB2B2B3),
                       fontSize: 10.sp,
-                      fontFamily: 'manrope',
+                      fontFamily: 'poppins',
                     ),
                   )
                 ],
