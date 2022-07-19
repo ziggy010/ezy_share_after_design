@@ -1,7 +1,7 @@
-import 'package:EzyShare/constants.dart';
-import 'package:EzyShare/screens/card_design.dart';
-import 'package:EzyShare/screens/saved_cards.dart';
-import 'package:EzyShare/screens/sign_in.dart';
+import 'package:ezy_share_got_design/constants.dart';
+import 'package:ezy_share_got_design/screens/card_design.dart';
+import 'package:ezy_share_got_design/screens/saved_cards.dart';
+import 'package:ezy_share_got_design/screens/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

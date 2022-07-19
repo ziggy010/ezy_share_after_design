@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:EzyShare/provider/theme_provider.dart';
-import 'package:EzyShare/constants.dart';
-import 'package:EzyShare/data.dart';
-import 'package:EzyShare/screens/document_scan.dart';
-import 'package:EzyShare/screens/final_Qr_ScanPage.dart';
-import 'package:EzyShare/screens/profile.dart';
-import 'package:EzyShare/screens/saved_cards.dart';
-import 'package:EzyShare/screens/visiting_card.dart';
+import 'package:ezy_share_got_design/provider/theme_provider.dart';
+import 'package:ezy_share_got_design/constants.dart';
+import 'package:ezy_share_got_design/data.dart';
+import 'package:ezy_share_got_design/screens/document_scan.dart';
+import 'package:ezy_share_got_design/screens/final_Qr_ScanPage.dart';
+import 'package:ezy_share_got_design/screens/profile.dart';
+import 'package:ezy_share_got_design/screens/saved_cards.dart';
+import 'package:ezy_share_got_design/screens/visiting_card.dart';
 
 import '../components/qr_content.dart';
 

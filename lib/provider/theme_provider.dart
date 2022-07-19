@@ -1,4 +1,4 @@
-import 'package:EzyShare/constants.dart';
+import 'package:ezy_share_got_design/constants.dart';
 import 'package:flutter/material.dart';
 
 class MyThemes {

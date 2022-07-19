@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:EzyShare/constants.dart';
+import 'package:ezy_share_got_design/constants.dart';
 
 class HomeCardInfo {
   Color cardColor;
