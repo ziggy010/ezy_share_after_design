@@ -1,9 +1,10 @@
 import 'dart:ui';
 
-import 'package:ezy_share_got_design/constants.dart';
+import 'package:EzyShare/constants.dart';
 
 class HomeCardInfo {
   Color cardColor;
+
   final String heading;
 
   HomeCardInfo(
@@ -15,7 +16,7 @@ class HomeCardInfo {
 List<HomeCardInfo> cards = [
   HomeCardInfo(
     kNavbarColor,
-    heading: 'card1',
+    heading: 'card12',
   ),
   HomeCardInfo(
     Color(0xFFC5C6F7),

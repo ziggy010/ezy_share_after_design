@@ -1,4 +1,4 @@
-package com.example.ezy_share_got_design
+package com.example.EzyShare
 
 import io.flutter.embedding.android.FlutterActivity
 
