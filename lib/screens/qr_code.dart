@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ScanQrPage extends StatefulWidget {
   static const String id = 'ScanQrPage';
@@ -15,6 +16,8 @@ class _ScanQrPageState extends State<ScanQrPage> {
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+
+  String? finalUrl;
 
   @override
   void reassemble() {
@@ -52,12 +55,24 @@ class _ScanQrPageState extends State<ScanQrPage> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: (result != null)
-                    ? Text(
-                        // '   Type: ${describeEnum(result!.format)}
-                        '\n Data: ${result!.code}',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
+                    ? GestureDetector(
+                        onTap: () async {
+                          if (result != null) {
+                            if (await canLaunch(finalUrl!)) {
+                              await launch(finalUrl!);
+                            } else {
+                              throw 'Could not launch $finalUrl';
+                            }
+                          } else {
+                            print('hello');
+                          }
+                        },
+                        child: Text(
+                          '\n Data: ${result!.code}',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
                         ),
                       )
                     : const Center(
@@ -79,6 +94,7 @@ class _ScanQrPageState extends State<ScanQrPage> {
     controller.scannedDataStream.listen((scanData) {
       setState(() {
         result = scanData;
+        finalUrl = result!.code;
       });
     });
   }

@@ -1,3 +1,4 @@
+import 'package:ezy_share_got_design/card_designs/card_design1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -319,21 +320,12 @@ class _HomepageState extends State<Homepage>
                                             color: cards[index].cardColor,
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsets.all(50.0),
+                                                  const EdgeInsets.all(22.0),
                                               child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.stretch,
                                                 children: [
-                                                  SizedBox(
-                                                    height: 20.h,
-                                                  ),
-                                                  Text(
-                                                    cards[index].heading,
-                                                    style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 30.sp,
-                                                    ),
-                                                  )
+                                                  CardDesign1(),
                                                 ],
                                               ),
                                             ),

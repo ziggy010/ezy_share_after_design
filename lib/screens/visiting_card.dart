@@ -1,6 +1,8 @@
+import 'package:ezy_share_got_design/card_designs/card_design2.dart';
 import 'package:ezy_share_got_design/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class VisitingCard extends StatelessWidget {
   static const String id = 'VisitingCard';
@@ -29,6 +31,9 @@ class VisitingCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: kNavbarColor,
                   borderRadius: BorderRadius.circular(20.r),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(12.0),
                 ),
               ),
             ),
@@ -129,10 +134,15 @@ class VisitingCard extends StatelessWidget {
                       SizedBox(
                         height: 29.h,
                       ),
-                      Image.asset(
-                        'lib/images/qr-code.png',
-                        height: 160,
+                      QrImage(
+                        data: "https://facebook.com",
+                        version: QrVersions.auto,
+                        size: 200.0,
                       ),
+                      // Image.asset(
+                      //   'lib/images/qr-code.png',
+                      //   height: 160,
+                      // ),
                     ],
                   ),
                 ),

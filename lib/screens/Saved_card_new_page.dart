@@ -1,3 +1,4 @@
+import 'package:ezy_share_got_design/card_designs/card_design2.dart';
 import 'package:ezy_share_got_design/components/saved_cards_data.dart';
 import 'package:ezy_share_got_design/constants.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,16 @@ class SavedCardNewPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: kNavbarColor,
                   borderRadius: BorderRadius.circular(20.r),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: CardDesign2(
+                    companyName: savedCardData.companyName,
+                    fullname: savedCardData.title,
+                    phoneNumber: savedCardData.phoneNumber,
+                    email: savedCardData.email,
+                    webiste: savedCardData.website,
+                  ),
                 ),
               ),
             ),

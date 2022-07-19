@@ -132,32 +132,40 @@ class _CardDesignState extends State<CardDesign> {
                       });
                     },
                     children: [
-                      Flexible(
-                        child: Container(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                FreeDesign(),
-                                FreeDesign(),
-                                FreeDesign(),
-                                FreeDesign(),
-                                FreeDesign(),
-                              ],
+                      Column(
+                        children: [
+                          Flexible(
+                            child: Container(
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    FreeDesign(),
+                                    FreeDesign(),
+                                    FreeDesign(),
+                                    FreeDesign(),
+                                    FreeDesign(),
+                                  ],
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                      Flexible(
-                        child: Container(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                PremiumDesign(),
-                                PremiumDesign(),
-                              ],
+                      Column(
+                        children: [
+                          Flexible(
+                            child: Container(
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    PremiumDesign(),
+                                    PremiumDesign(),
+                                  ],
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
                     ],
                   ),
