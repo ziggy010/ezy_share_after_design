@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ezy_share_got_design">
+    package="com.example.EzyShare">
    <application
-        android:label="ezy_share_got_design"
+        android:label="EzyShare"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

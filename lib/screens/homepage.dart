@@ -43,8 +43,8 @@ class _HomepageState extends State<Homepage>
 
   int onCardNumber = 0;
 
-  Color primaryCardColor = Color(0xFF585CE5);
-  Color secondaryCardColor = Color(0xFFC5C6F7);
+  Color primaryCardColor = const Color(0xFF585CE5);
+  Color secondaryCardColor = const Color(0xFFC5C6F7);
 
   HomeCardInfo _homeCardInfo = HomeCardInfo(kNavbarColor);
 
@@ -99,7 +99,7 @@ class _HomepageState extends State<Homepage>
     });
   }
 
-  Color blurBackground = Color(0xFFAFAFD4);
+  Color blurBackground = const Color(0xFFAFAFD4);
 
   Color finalBackgroundColor = kBackgroundColor;
 
@@ -129,16 +129,32 @@ class _HomepageState extends State<Homepage>
     return (await showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: new Text('Are you sure?'),
-            content: new Text('Do you want to exit an App'),
+            title: Text(
+              'Are you sure?',
+              style: TextStyle(
+                fontSize: 16.sp,
+                fontFamily: 'poppins',
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            content: Text(
+              'Do you want to exit an App',
+              style: TextStyle(
+                fontSize: 14.sp,
+                fontFamily: 'poppins',
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             actions: <Widget>[
               TextButton(
                 onPressed: () => Navigator.of(context).pop(false),
-                child: new Text('No'),
+                child: const Text('No'),
               ),
               TextButton(
                 onPressed: () => Navigator.of(context).pop(true),
-                child: new Text('Yes'),
+                child: const Text('Yes'),
               ),
             ],
           ),
@@ -155,7 +171,7 @@ class _HomepageState extends State<Homepage>
         body: AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle.dark,
           child: AnimatedContainer(
-            duration: Duration(milliseconds: 700),
+            duration: const Duration(milliseconds: 700),
             curve: Curves.fastOutSlowIn,
             color: finalBackgroundColor,
             child: Padding(
@@ -180,7 +196,7 @@ class _HomepageState extends State<Homepage>
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 fontFamily: 'poppins',
-                                color: Color(0x55211F30),
+                                color: const Color(0x55211F30),
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -201,7 +217,7 @@ class _HomepageState extends State<Homepage>
                           onTap: () {
                             Navigator.pushNamed(context, Profile.id);
                           },
-                          child: CircleAvatar(
+                          child: const CircleAvatar(
                             radius: 24,
                             backgroundImage: NetworkImage(
                               'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80',
@@ -238,7 +254,7 @@ class _HomepageState extends State<Homepage>
                                 Text(
                                   getTitleSecond(onCardNumber),
                                   style: TextStyle(
-                                    color: Color(0x34211F30),
+                                    color: const Color(0x34211F30),
                                     fontFamily: 'poppins',
                                     fontSize: 20.sp,
                                     fontWeight: FontWeight.w500,
@@ -250,7 +266,7 @@ class _HomepageState extends State<Homepage>
                                 Text(
                                   getTitleThird(onCardNumber),
                                   style: TextStyle(
-                                    color: Color(0x34211F30),
+                                    color: const Color(0x34211F30),
                                     fontFamily: 'poppins',
                                     fontSize: 20.sp,
                                     fontWeight: FontWeight.w500,
@@ -268,7 +284,7 @@ class _HomepageState extends State<Homepage>
                     Container(
                       height: 3.h,
                       width: 55.h,
-                      color: Color(0xFF7B66FF),
+                      color: const Color(0xFF7B66FF),
                     ),
                     SizedBox(
                       height: 30.h,
@@ -320,13 +336,35 @@ class _HomepageState extends State<Homepage>
                                             color: cards[index].cardColor,
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsets.all(22.0),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.stretch,
-                                                children: [
-                                                  CardDesign1(),
-                                                ],
+                                                  const EdgeInsets.all(20.0),
+                                              child: Container(
+                                                width: 900,
+                                                decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    border: Border.all(
+                                                      color: Colors.white,
+                                                    ),
+                                                    borderRadius:
+                                                        const BorderRadius.all(
+                                                            Radius.circular(
+                                                                20))),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment
+                                                          .stretch,
+                                                  children: [
+                                                    SizedBox(
+                                                      height: 20.h,
+                                                    ),
+                                                    Text(
+                                                      cards[index].heading,
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 30.sp,
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -439,7 +477,7 @@ class _HomepageState extends State<Homepage>
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CircleAvatar(
-                      backgroundColor: Color(0xFFF2F6FD),
+                      backgroundColor: const Color(0xFFF2F6FD),
                       child: Image.asset('lib/icons/Vector.png'),
                     ),
                     SizedBox(
@@ -470,7 +508,7 @@ class _HomepageState extends State<Homepage>
                     Text(
                       'Saved Cards',
                       style: TextStyle(
-                        color: Color(0xFFB2B2B3),
+                        color: const Color(0xFFB2B2B3),
                         fontSize: 10.sp,
                         fontFamily: 'poppins',
                       ),

@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import 'package:ezy_share_got_design/card_designs/card_design2.dart';
 import 'package:ezy_share_got_design/components/saved_cards_data.dart';
 import 'package:ezy_share_got_design/constants.dart';
+=======
+import 'package:EzyShare/components/saved_cards_data.dart';
+import 'package:EzyShare/constants.dart';
+>>>>>>> ed5d3ec3406622a70bbf86c727fc6665300f7db3
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,4 +1,3 @@
-import 'package:ezy_share_got_design/components/free_design.dart';
 import 'package:ezy_share_got_design/constants.dart';
 import 'package:ezy_share_got_design/screens/qr_code.dart';
 import 'package:ezy_share_got_design/screens/share_qr.dart';

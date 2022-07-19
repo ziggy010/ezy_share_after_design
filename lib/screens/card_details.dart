@@ -1,10 +1,10 @@
-import 'package:ezy_share_got_design/components/text_fields.dart';
-import 'package:ezy_share_got_design/constants.dart';
 import 'package:ezy_share_got_design/screens/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../components/reusable_button.dart';
+import '../components/text_fields.dart';
+import '../constants.dart';
 
 class CardScreen extends StatelessWidget {
   static const String id = 'cardScreen';

@@ -1,4 +1,4 @@
-# ezy_share_got_design
+# EzyShare
 
 A new Flutter project.
 

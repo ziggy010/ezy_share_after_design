@@ -1,10 +1,10 @@
-import 'package:ezy_share_got_design/components/reusable_button.dart';
-import 'package:ezy_share_got_design/components/text_fields.dart';
-import 'package:ezy_share_got_design/constants.dart';
-import 'package:ezy_share_got_design/screens/homepage.dart';
-import 'package:ezy_share_got_design/screens/register_screen.dart';
+import 'package:EzyShare/components/reusable_button.dart';
+import 'package:EzyShare/components/text_fields.dart';
+import 'package:EzyShare/constants.dart';
+import 'package:EzyShare/screens/homepage.dart';
+import 'package:EzyShare/screens/register_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:ezy_share_got_design/provider/theme_provider.dart';
+import 'package:EzyShare/provider/theme_provider.dart';
 
 class SignIn extends StatefulWidget {
   static const String id = 'signin';
