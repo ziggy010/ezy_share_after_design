@@ -1,24 +1,22 @@
+import 'package:ezy_share_got_design/components/bottom_navbar.dart';
+import 'package:ezy_share_got_design/provider/theme_provider.dart';
+import 'package:ezy_share_got_design/screens/card_design.dart';
+import 'package:ezy_share_got_design/screens/card_details.dart';
+import 'package:ezy_share_got_design/screens/darkmode.dart';
 import 'package:ezy_share_got_design/screens/document_scan.dart';
-
-import 'components/bottom_navbar.dart';
-import 'provider/theme_provider.dart';
-import 'screens/card_design.dart';
-import 'screens/card_details.dart';
-import 'screens/darkmode.dart';
-import 'screens/homepage.dart';
-import 'screens/onboarding_scree.dart';
+import 'package:ezy_share_got_design/screens/final_Qr_ScanPage.dart';
+import 'package:ezy_share_got_design/screens/homepage.dart';
+import 'package:ezy_share_got_design/screens/onboarding_scree.dart';
+import 'package:ezy_share_got_design/screens/profile.dart';
+import 'package:ezy_share_got_design/screens/qr_code.dart';
+import 'package:ezy_share_got_design/screens/qr_scan_page.dart';
+import 'package:ezy_share_got_design/screens/register_screen.dart';
+import 'package:ezy_share_got_design/screens/saved_cards.dart';
+import 'package:ezy_share_got_design/screens/sign_in.dart';
+import 'package:ezy_share_got_design/screens/visiting_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'screens/final_Qr_ScanPage.dart';
-import 'screens/profile.dart';
-import 'screens/qr_code.dart';
-import 'screens/qr_scan_page.dart';
-import 'screens/register_screen.dart';
-import 'screens/saved_cards.dart';
-import 'screens/sign_in.dart';
-import 'screens/visiting_card.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,3 +1,5 @@
+import 'package:ezy_share_got_design/components/free_design.dart';
+import 'package:ezy_share_got_design/components/premium_design.dart';
 import 'package:ezy_share_got_design/constants.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';

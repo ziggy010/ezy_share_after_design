@@ -1,6 +1,6 @@
-import 'package:EzyShare/components/premium_design.dart';
-import 'package:EzyShare/constants.dart';
-import 'package:EzyShare/screens/qr_code.dart';
+import 'package:ezy_share_got_design/components/premium_design.dart';
+import 'package:ezy_share_got_design/constants.dart';
+import 'package:ezy_share_got_design/screens/qr_code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

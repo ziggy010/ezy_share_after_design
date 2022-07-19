@@ -1,13 +1,13 @@
-import 'package:EzyShare/components/bottom_navbar.dart';
-import 'package:EzyShare/components/qr_button.dart';
-import 'package:EzyShare/constants.dart';
-import 'package:EzyShare/screens/profile.dart';
-import 'package:EzyShare/screens/saved_cards.dart';
-import 'package:EzyShare/screens/visiting_card.dart';
+import 'package:ezy_share_got_design/components/bottom_navbar.dart';
+import 'package:ezy_share_got_design/components/qr_button.dart';
+import 'package:ezy_share_got_design/constants.dart';
+import 'package:ezy_share_got_design/screens/profile.dart';
+import 'package:ezy_share_got_design/screens/saved_cards.dart';
+import 'package:ezy_share_got_design/screens/visiting_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:EzyShare/data.dart';
+import 'package:ezy_share_got_design/data.dart';
 import 'package:indexed/indexed.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
