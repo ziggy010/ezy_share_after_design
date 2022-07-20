@@ -16,7 +16,7 @@ class HomeCardInfo {
 List<HomeCardInfo> cards = [
   HomeCardInfo(
     kNavbarColor,
-    heading: 'card12',
+    heading: 'card1',
   ),
   HomeCardInfo(
     Color(0xFFC5C6F7),
