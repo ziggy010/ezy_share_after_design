@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "889748310575",
+    "project_id": "ezy-share",
+    "storage_bucket": "ezy-share.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889748310575:android:c5a2f90e4d5290cefc54da",
+        "android_client_info": {
+          "package_name": "com.shresthaventures.ezyshare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889748310575-fsm83vm1rmcttgu0o9d6q6oj17nlbnkn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1iygn_ntqZwz4bJUgRO0e4ZD8sbUbokY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889748310575-fsm83vm1rmcttgu0o9d6q6oj17nlbnkn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
