@@ -20,14 +20,15 @@ class QrContent extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: Center(
-            child: Text(
-          text,
-          style: TextStyle(
-            color: kNavbarColor,
-            fontFamily: 'manrope',
-            fontSize: 14.sp,
+          child: Text(
+            text,
+            style: TextStyle(
+              color: kNavbarColor,
+              fontFamily: 'manrope',
+              fontSize: 14.sp,
+            ),
           ),
-        )),
+        ),
       ),
     );
   }
