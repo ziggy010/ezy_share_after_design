@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../components/reusable_button.dart';
+import '../components/text_fields.dart';
+import '../constants.dart';
 
 class CardScreen extends StatelessWidget {
   static const String id = 'cardScreen';

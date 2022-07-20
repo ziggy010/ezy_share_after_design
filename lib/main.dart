@@ -4,6 +4,7 @@ import 'package:ezy_share_got_design/screens/card_design.dart';
 import 'package:ezy_share_got_design/screens/card_details.dart';
 import 'package:ezy_share_got_design/screens/darkmode.dart';
 import 'package:ezy_share_got_design/screens/document_scan.dart';
+import 'package:ezy_share_got_design/screens/final_Qr_ScanPage.dart';
 import 'package:ezy_share_got_design/screens/homepage.dart';
 import 'package:ezy_share_got_design/screens/onboarding_scree.dart';
 import 'package:ezy_share_got_design/screens/profile.dart';

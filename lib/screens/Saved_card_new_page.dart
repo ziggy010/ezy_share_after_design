@@ -1,5 +1,16 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+import 'package:ezy_share_got_design/card_designs/card_design2.dart';
 import 'package:ezy_share_got_design/components/saved_cards_data.dart';
 import 'package:ezy_share_got_design/constants.dart';
+=======
+import 'package:EzyShare/components/saved_cards_data.dart';
+import 'package:EzyShare/constants.dart';
+>>>>>>> ed5d3ec3406622a70bbf86c727fc6665300f7db3
+=======
+import 'package:ezy_share_got_design/components/saved_cards_data.dart';
+import 'package:ezy_share_got_design/constants.dart';
+>>>>>>> 96623224062f8ef5fd7569b82b9c8001f730af84
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,6 +42,16 @@ class SavedCardNewPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: kNavbarColor,
                   borderRadius: BorderRadius.circular(20.r),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: CardDesign2(
+                    companyName: savedCardData.companyName,
+                    fullname: savedCardData.title,
+                    phoneNumber: savedCardData.phoneNumber,
+                    email: savedCardData.email,
+                    webiste: savedCardData.website,
+                  ),
                 ),
               ),
             ),

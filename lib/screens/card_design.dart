@@ -5,6 +5,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../components/free_design.dart';
+import '../components/premium_design.dart';
+
 class CardDesign extends StatefulWidget {
   static const String id = 'CardDesign';
 
@@ -132,32 +135,40 @@ class _CardDesignState extends State<CardDesign> {
                       });
                     },
                     children: [
-                      Flexible(
-                        child: Container(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                FreeDesign(),
-                                FreeDesign(),
-                                FreeDesign(),
-                                FreeDesign(),
-                                FreeDesign(),
-                              ],
+                      Column(
+                        children: [
+                          Flexible(
+                            child: Container(
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    FreeDesign(),
+                                    FreeDesign(),
+                                    FreeDesign(),
+                                    FreeDesign(),
+                                    FreeDesign(),
+                                  ],
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                      Flexible(
-                        child: Container(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                PremiumDesign(),
-                                PremiumDesign(),
-                              ],
+                      Column(
+                        children: [
+                          Flexible(
+                            child: Container(
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    PremiumDesign(),
+                                    PremiumDesign(),
+                                  ],
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
                     ],
                   ),
