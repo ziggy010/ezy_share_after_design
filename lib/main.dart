@@ -16,11 +16,12 @@ import 'package:ezy_share_got_design/screens/visiting_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:firebase_core/firebase_core.dart';
 import 'screens/final_Qr_ScanPage.dart';
 
-void main() {
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(const MyApp());
