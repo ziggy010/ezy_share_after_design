@@ -339,16 +339,6 @@ class _HomepageState extends State<Homepage>
                                                   const EdgeInsets.all(20.0),
                                               child: Container(
                                                 width: 900,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  border: Border.all(
-                                                    color: Colors.white,
-                                                  ),
-                                                  borderRadius:
-                                                      const BorderRadius.all(
-                                                    Radius.circular(20),
-                                                  ),
-                                                ),
                                                 child: Column(
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment
@@ -377,43 +367,15 @@ class _HomepageState extends State<Homepage>
                               ),
                             ),
                           ),
-                          Positioned(
-                            left: 7.w,
-                            bottom: 20.h,
-                            child: Row(
-                              children: [
-                                AnimatedOpacity(
-                                  duration: const Duration(milliseconds: 700),
-                                  opacity: currentOpacity,
-                                  curve: Curves.fastOutSlowIn,
-                                  child: Text(
-                                    'Citizenship',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'poppins',
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 12.sp,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 5.w,
-                                ),
-                                AnimatedOpacity(
-                                  duration: const Duration(milliseconds: 700),
-                                  opacity: currentOpacity,
-                                  curve: Curves.fastOutSlowIn,
-                                  child: CircleAvatar(
-                                    backgroundColor: Colors.white,
-                                    radius: 20.r,
-                                    child: Icon(
-                                      Icons.qr_code_scanner_outlined,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                          QrCircularContents(
+                            currentOpacity: currentOpacity,
+                            left: 7,
+                            bottom: 20,
+                          ),
+                          QrCircularContents(
+                            currentOpacity: currentOpacity,
+                            left: 67,
+                            bottom: 60,
                           ),
                         ],
                       ),
@@ -512,6 +474,60 @@ class _HomepageState extends State<Homepage>
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class QrCircularContents extends StatelessWidget {
+  final double currentOpacity;
+  final double left;
+  final double bottom;
+
+  QrCircularContents({
+    required this.currentOpacity,
+    required this.left,
+    required this.bottom,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: left.w,
+      bottom: bottom.h,
+      child: Row(
+        children: [
+          AnimatedOpacity(
+            duration: const Duration(milliseconds: 700),
+            opacity: currentOpacity,
+            curve: Curves.fastOutSlowIn,
+            child: Text(
+              'Citizenship',
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'poppins',
+                fontWeight: FontWeight.w700,
+                fontSize: 12.sp,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 5.w,
+          ),
+          AnimatedOpacity(
+            duration: const Duration(milliseconds: 700),
+            opacity: currentOpacity,
+            curve: Curves.fastOutSlowIn,
+            child: CircleAvatar(
+              backgroundColor: Colors.white,
+              radius: 20.r,
+              child: Icon(
+                Icons.qr_code_scanner_outlined,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
