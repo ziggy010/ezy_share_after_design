@@ -340,14 +340,15 @@ class _HomepageState extends State<Homepage>
                                               child: Container(
                                                 width: 900,
                                                 decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  border: Border.all(
                                                     color: Colors.white,
-                                                    border: Border.all(
-                                                      color: Colors.white,
-                                                    ),
-                                                    borderRadius:
-                                                        const BorderRadius.all(
-                                                            Radius.circular(
-                                                                20))),
+                                                  ),
+                                                  borderRadius:
+                                                      const BorderRadius.all(
+                                                    Radius.circular(20),
+                                                  ),
+                                                ),
                                                 child: Column(
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment

@@ -19,12 +19,10 @@ import 'package:ezy_share_got_design/screens/register_screen.dart';
 import 'package:ezy_share_got_design/screens/saved_cards.dart';
 import 'package:ezy_share_got_design/screens/sign_in.dart';
 import 'package:ezy_share_got_design/screens/visiting_card.dart';
-
 import 'screens/final_Qr_ScanPage.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(const MyApp());
