@@ -19,6 +19,7 @@ import 'package:ezy_share_got_design/screens/saved_cards.dart';
 import 'package:ezy_share_got_design/screens/sign_in.dart';
 import 'package:ezy_share_got_design/screens/visiting_card.dart';
 import 'screens/final_Qr_ScanPage.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
