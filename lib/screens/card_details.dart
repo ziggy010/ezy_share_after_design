@@ -86,7 +86,7 @@ class CardScreen extends StatelessWidget {
                         ReusableTextField(
                           hintText: 'Full name*',
                           labelText: 'Full name',
-                          onChanged: (value) {},
+                          onSaved: (value) {},
                         ),
                         SizedBox(
                           height: 18.h,
@@ -94,7 +94,7 @@ class CardScreen extends StatelessWidget {
                         ReusableTextField(
                           hintText: 'Profession*',
                           labelText: 'Profession',
-                          onChanged: (value) {},
+                          onSaved: (value) {},
                         ),
                         SizedBox(
                           height: 18.h,
@@ -102,7 +102,7 @@ class CardScreen extends StatelessWidget {
                         ReusableTextField(
                           hintText: 'Company name*',
                           labelText: 'Company name',
-                          onChanged: (value) {},
+                          onSaved: (value) {},
                         ),
                         SizedBox(
                           height: 18.h,
@@ -110,7 +110,7 @@ class CardScreen extends StatelessWidget {
                         ReusableTextField(
                           hintText: 'Designation*',
                           labelText: 'Designation',
-                          onChanged: (value) {},
+                          onSaved: (value) {},
                         ),
                         SizedBox(
                           height: 18.h,
@@ -118,7 +118,7 @@ class CardScreen extends StatelessWidget {
                         ReusableTextField(
                           hintText: 'Contact number*',
                           labelText: 'Contact number',
-                          onChanged: (value) {},
+                          onSaved: (value) {},
                         ),
                         SizedBox(
                           height: 18.h,
@@ -126,7 +126,7 @@ class CardScreen extends StatelessWidget {
                         ReusableTextField(
                           hintText: 'Email*',
                           labelText: 'Email',
-                          onChanged: (value) {},
+                          onSaved: (value) {},
                         ),
                         SizedBox(
                           height: 18.h,

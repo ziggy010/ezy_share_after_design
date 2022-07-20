@@ -7,7 +7,7 @@ class ReusableTextField extends StatelessWidget {
   final String labelText;
   final bool ObscureText;
   final Widget? icon;
-  final Function(String) onChanged;
+  final Function(String) onSaved;
   final TextInputType? keyboardType;
 
   ReusableTextField({
@@ -15,7 +15,7 @@ class ReusableTextField extends StatelessWidget {
     required this.labelText,
     this.ObscureText = false,
     this.icon,
-    required this.onChanged,
+    required this.onSaved,
     this.keyboardType,
   });
 
@@ -23,7 +23,7 @@ class ReusableTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       keyboardType: keyboardType,
-      onChanged: onChanged,
+      onChanged: onSaved,
       autocorrect: false,
       enableSuggestions: false,
       obscureText: ObscureText,

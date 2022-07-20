@@ -64,7 +64,7 @@ class RegisterScreen extends StatelessWidget {
                     ReusableTextField(
                       hintText: 'Fullname',
                       labelText: 'Fullname',
-                      onChanged: (value) {},
+                      onSaved: (value) {},
                     ),
                     SizedBox(
                       height: 20.h,
@@ -72,7 +72,7 @@ class RegisterScreen extends StatelessWidget {
                     ReusableTextField(
                       hintText: 'Phone number',
                       labelText: 'Phone number',
-                      onChanged: (value) {},
+                      onSaved: (value) {},
                     ),
                     SizedBox(
                       height: 20.h,
@@ -81,7 +81,7 @@ class RegisterScreen extends StatelessWidget {
                       keyboardType: TextInputType.emailAddress,
                       hintText: 'Email',
                       labelText: 'Email',
-                      onChanged: (value) {},
+                      onSaved: (value) {},
                     ),
                     SizedBox(
                       height: 20.h,
@@ -89,7 +89,7 @@ class RegisterScreen extends StatelessWidget {
                     ReusableTextField(
                       hintText: 'Address',
                       labelText: 'Address',
-                      onChanged: (value) {},
+                      onSaved: (value) {},
                     ),
                     SizedBox(
                       height: 20.h,
@@ -102,7 +102,7 @@ class RegisterScreen extends StatelessWidget {
                       ObscureText: true,
                       hintText: 'Password',
                       labelText: 'Password',
-                      onChanged: (value) {},
+                      onSaved: (value) {},
                     ),
                   ],
                 ),
