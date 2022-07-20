@@ -378,49 +378,41 @@ class _HomepageState extends State<Homepage>
                             ),
                           ),
                           Positioned(
-                            left: 67.w,
+                            left: 7.w,
                             bottom: 20.h,
-                            child: AnimatedOpacity(
-                              duration: const Duration(milliseconds: 700),
-                              opacity: currentOpacity,
-                              curve: Curves.fastOutSlowIn,
-                              child: Container(
-                                height: _containerHeight,
-                                width: 187.w,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(12.r),
+                            child: Row(
+                              children: [
+                                AnimatedOpacity(
+                                  duration: const Duration(milliseconds: 700),
+                                  opacity: currentOpacity,
+                                  curve: Curves.fastOutSlowIn,
+                                  child: Text(
+                                    'Citizenship',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'poppins',
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 12.sp,
+                                    ),
+                                  ),
                                 ),
-                                child: Column(children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context, DocumentScan.id);
-                                    },
-                                    child: QrContent(
-                                      text: 'Citizenship',
+                                SizedBox(
+                                  width: 5.w,
+                                ),
+                                AnimatedOpacity(
+                                  duration: const Duration(milliseconds: 700),
+                                  opacity: currentOpacity,
+                                  curve: Curves.fastOutSlowIn,
+                                  child: CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    radius: 20.r,
+                                    child: Icon(
+                                      Icons.qr_code_scanner_outlined,
+                                      color: Colors.black,
                                     ),
                                   ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context, DocumentScan.id);
-                                    },
-                                    child: QrContent(
-                                      text: 'Passport',
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context, FinalQrPage.id);
-                                    },
-                                    child: QrContent(
-                                      text: 'QR Scan',
-                                    ),
-                                  )
-                                ]),
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
