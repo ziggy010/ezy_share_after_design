@@ -1,3 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:ezy_share_got_design/components/bottom_navbar.dart';
 import 'package:ezy_share_got_design/provider/theme_provider.dart';
 import 'package:ezy_share_got_design/screens/card_design.dart';
@@ -14,9 +19,6 @@ import 'package:ezy_share_got_design/screens/register_screen.dart';
 import 'package:ezy_share_got_design/screens/saved_cards.dart';
 import 'package:ezy_share_got_design/screens/sign_in.dart';
 import 'package:ezy_share_got_design/screens/visiting_card.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'screens/final_Qr_ScanPage.dart';
 
 Future main() async {
