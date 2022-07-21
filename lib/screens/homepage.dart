@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ezy_share_got_design/card_designs/card_design1.dart';
+import 'package:ezy_share_got_design/model/user_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,7 +28,8 @@ class _HomepageState extends State<Homepage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   SwiperController _controllerSwiper = SwiperController();
-
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
   @override
   void initState() {
     _controller = AnimationController(
@@ -33,6 +37,14 @@ class _HomepageState extends State<Homepage>
       vsync: this,
     );
     super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
   }
 
   @override
@@ -192,7 +204,7 @@ class _HomepageState extends State<Homepage>
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Hi, Bibek',
+                              "Hi, ${loggedInUser.fullName}",
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 fontFamily: 'poppins',
