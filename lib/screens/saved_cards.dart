@@ -2,7 +2,7 @@ import 'package:ezy_share_got_design/components/free_design.dart';
 import 'package:ezy_share_got_design/components/saved_cards_data.dart';
 import 'package:ezy_share_got_design/constants.dart';
 import 'package:ezy_share_got_design/screens/Saved_card_new_page.dart';
-import 'package:ezy_share_got_design/screens/document_scan.dart';
+import 'package:ezy_share_got_design/scanner/document_scan.dart';
 import 'package:ezy_share_got_design/screens/final_Qr_ScanPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -5,17 +5,17 @@ import 'package:ezy_share_got_design/components/bottom_navbar.dart';
 import 'package:ezy_share_got_design/provider/theme_provider.dart';
 import 'package:ezy_share_got_design/screens/card_design.dart';
 import 'package:ezy_share_got_design/screens/card_details.dart';
-import 'package:ezy_share_got_design/screens/darkmode.dart';
-import 'package:ezy_share_got_design/screens/document_scan.dart';
+
+import 'package:ezy_share_got_design/scanner/document_scan.dart';
 import 'package:ezy_share_got_design/screens/final_Qr_ScanPage.dart';
 import 'package:ezy_share_got_design/screens/homepage.dart';
 import 'package:ezy_share_got_design/screens/onboarding_scree.dart';
 import 'package:ezy_share_got_design/screens/profile.dart';
-import 'package:ezy_share_got_design/screens/qr_code.dart';
-import 'package:ezy_share_got_design/screens/qr_scan_page.dart';
-import 'package:ezy_share_got_design/screens/register_screen.dart';
+import 'package:ezy_share_got_design/scanner/qr_code.dart';
+import 'package:ezy_share_got_design/scanner/qr_scan_page.dart';
+import 'package:ezy_share_got_design/screens/authentication/register_screen.dart';
 import 'package:ezy_share_got_design/screens/saved_cards.dart';
-import 'package:ezy_share_got_design/screens/sign_in.dart';
+import 'package:ezy_share_got_design/screens/authentication/sign_in.dart';
 import 'package:ezy_share_got_design/screens/visiting_card.dart';
 import 'screens/final_Qr_ScanPage.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -53,7 +53,6 @@ class _MyAppState extends State<MyApp> {
             SignIn.id: (context) => SignIn(),
             RegisterScreen.id: (context) => RegisterScreen(),
             CardScreen.id: (context) => CardScreen(),
-            DarkMode.id: (context) => DarkMode(),
             Profile.id: (context) => Profile(),
             CardDesign.id: (context) => CardDesign(),
             SavedCard.id: (context) => SavedCard(),

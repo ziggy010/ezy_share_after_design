@@ -2,7 +2,7 @@ import 'package:ezy_share_got_design/screens/homepage.dart';
 import 'package:ezy_share_got_design/screens/onboarding_screens/onboarding_screen1.dart';
 import 'package:ezy_share_got_design/screens/onboarding_screens/onboarding_screen2.dart';
 import 'package:ezy_share_got_design/screens/onboarding_screens/onboarding_screen3.dart';
-import 'package:ezy_share_got_design/screens/sign_in.dart';
+import 'package:ezy_share_got_design/screens/authentication/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:ezy_share_got_design/constants.dart';

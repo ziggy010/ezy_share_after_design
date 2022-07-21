@@ -6,7 +6,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:ezy_share_got_design/provider/theme_provider.dart';
 import 'package:ezy_share_got_design/constants.dart';
 import 'package:ezy_share_got_design/data.dart';
-import 'package:ezy_share_got_design/screens/document_scan.dart';
+import 'package:ezy_share_got_design/scanner/document_scan.dart';
 import 'package:ezy_share_got_design/screens/final_Qr_ScanPage.dart';
 import 'package:ezy_share_got_design/screens/profile.dart';
 import 'package:ezy_share_got_design/screens/saved_cards.dart';
