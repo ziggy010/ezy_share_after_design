@@ -37,9 +37,7 @@ class _SignInState extends State<SignIn> {
       decoration: InputDecoration(
         fillColor: const Color(0xFFE2E3FF),
         filled: true,
-        contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: "Phone,email or username",
-        labelText: 'Phone,email or username',
         hintStyle: TextStyle(
           color: Colors.grey.shade600,
           fontFamily: 'poppins',
@@ -96,9 +94,7 @@ class _SignInState extends State<SignIn> {
             color: Colors.white,
           ),
         ),
-        contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: 'Password',
-        labelText: 'Password',
         hintStyle: TextStyle(
           color: Colors.grey.shade600,
           fontFamily: 'poppins',
@@ -222,7 +218,9 @@ class _SignInState extends State<SignIn> {
                       child: Text.rich(
                         TextSpan(
                           text: 'Forgot password?  ',
-                          style: kSigninBodySmallText,
+                          style: kSigninBodySmallText.copyWith(
+                            color: kNavbarColor,
+                          ),
                         ),
                       ),
                     ),
@@ -282,21 +280,25 @@ class _SignInState extends State<SignIn> {
   void signIn(String email, String password) async {
     if (_formKey.currentState!.validate()) {
       showDialog(
-          context: context,
-          barrierDismissible: false,
-          builder: (context) => const Center(
-                  child: SpinKitFadingGrid(
-                size: 100,
-                color: Color(0xFF585CE5),
-              )));
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => const Center(
+          child: SpinKitFadingGrid(
+            size: 100,
+            color: Color(0xFF585CE5),
+          ),
+        ),
+      );
       try {
         await _auth
             .signInWithEmailAndPassword(email: email, password: password)
-            .then((uid) => {
-                  Fluttertoast.showToast(msg: "Login Successful"),
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => Homepage())),
-                });
+            .then(
+              (uid) => {
+                Fluttertoast.showToast(msg: "Login Successful"),
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => Homepage())),
+              },
+            );
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
           case "invalid-email":

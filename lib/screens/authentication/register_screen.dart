@@ -41,7 +41,6 @@ class _RegistrationScreenState extends State<RegisterScreen> {
         filled: true,
         contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: "Full Name",
-        labelText: "Full Name",
         hintStyle: TextStyle(
           color: Colors.grey.shade600,
           fontFamily: 'poppins',
@@ -86,7 +85,6 @@ class _RegistrationScreenState extends State<RegisterScreen> {
         filled: true,
         contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: "Phone Number",
-        labelText: "Phone Number",
         hintStyle: TextStyle(
           color: Colors.grey.shade600,
           fontFamily: 'poppins',
@@ -127,7 +125,6 @@ class _RegistrationScreenState extends State<RegisterScreen> {
         filled: true,
         contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: "Address",
-        labelText: "Address",
         hintStyle: TextStyle(
           color: Colors.grey.shade600,
           fontFamily: 'poppins',
@@ -169,7 +166,6 @@ class _RegistrationScreenState extends State<RegisterScreen> {
         filled: true,
         contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: "Email",
-        labelText: "Email",
         hintStyle: TextStyle(
           color: Colors.grey.shade600,
           fontFamily: 'poppins',
@@ -214,7 +210,6 @@ class _RegistrationScreenState extends State<RegisterScreen> {
         filled: true,
         contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: "Password",
-        labelText: "Password",
         hintStyle: TextStyle(
           color: Colors.grey.shade600,
           fontFamily: 'poppins',
@@ -260,7 +255,6 @@ class _RegistrationScreenState extends State<RegisterScreen> {
         filled: true,
         contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: "Confirm Password",
-        labelText: "Confirm Password",
         hintStyle: TextStyle(
           color: Colors.grey.shade600,
           fontFamily: 'poppins',
@@ -302,20 +296,20 @@ class _RegistrationScreenState extends State<RegisterScreen> {
         height: 60.h,
         width: 300.w,
         child: MaterialButton(
-            padding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
-            minWidth: MediaQuery.of(context).size.width,
-            onPressed: () {
-              signUp(
-                  emailEditingController.text, passwordEditingController.text);
-            },
-            child: Text(
-              "Register",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 20.sp,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            )),
+          padding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
+          minWidth: MediaQuery.of(context).size.width,
+          onPressed: () {
+            signUp(emailEditingController.text, passwordEditingController.text);
+          },
+          child: Text(
+            "Register",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 20.sp,
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
     );
 
@@ -330,108 +324,114 @@ class _RegistrationScreenState extends State<RegisterScreen> {
       resizeToAvoidBottomInset: false,
       backgroundColor: kBackgroundColor,
       body: Padding(
-        padding: EdgeInsets.only(left: 30.w, top: 0.h),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.baseline,
-          textBaseline: TextBaseline.alphabetic,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Container(
+        padding: EdgeInsets.only(left: 30.w, top: 30.h),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            textBaseline: TextBaseline.alphabetic,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text(
+                          'Discover your new,',
+                          style:
+                              kRegBodyTextStyle.copyWith(letterSpacing: 3.0.sp),
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Text(
+                          'Business card.',
+                          style:
+                              kRegWelcomeText.copyWith(letterSpacing: 3.0.sp),
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: 30.w),
+                child: Form(
+                  key: _formKey,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.alphabetic,
                     children: [
-                      Text(
-                        'Discover your new,',
-                        style:
-                            kRegBodyTextStyle.copyWith(letterSpacing: 3.0.sp),
-                      ),
+                      fullNameField,
                       SizedBox(
-                        height: 10.h,
+                        height: 20.h,
                       ),
-                      Text(
-                        'Business card.',
-                        style: kRegWelcomeText.copyWith(letterSpacing: 3.0.sp),
+                      phoneNumberField,
+                      SizedBox(
+                        height: 20.h,
                       ),
+                      emailField,
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      addressField,
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      passwordField,
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      confirmPasswordField,
                     ],
                   ),
                 ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.only(right: 30.w),
-              child: Form(
-                key: _formKey,
+              ),
+              Container(
                 child: Column(
                   children: [
-                    fullNameField,
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    phoneNumberField,
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    emailField,
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    addressField,
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    passwordField,
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    confirmPasswordField,
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(right: 30.w),
-                    child: Center(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, SignIn.id);
-                        },
-                        child: Text.rich(
-                          TextSpan(
-                            text: 'Already have an account?  ',
-                            style: kRegBodySmallText,
-                            children: [
-                              TextSpan(
-                                text: 'Login',
-                                style: kRegBodySmallText.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                    Padding(
+                      padding: EdgeInsets.only(right: 30.w, top: 30.h),
+                      child: Center(
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, SignIn.id);
+                          },
+                          child: Text.rich(
+                            TextSpan(
+                              text: 'Already have an account?  ',
+                              style: kRegBodySmallText,
+                              children: [
+                                TextSpan(
+                                  text: 'Login',
+                                  style: kRegBodySmallText.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 28.w),
-                    child: signUpButton,
-                  ),
-                ],
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 28.w),
+                      child: signUpButton,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
