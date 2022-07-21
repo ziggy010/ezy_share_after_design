@@ -2,7 +2,7 @@ import 'package:ezy_share_got_design/components/reusable_button.dart';
 import 'package:ezy_share_got_design/components/text_fields.dart';
 import 'package:ezy_share_got_design/constants.dart';
 import 'package:ezy_share_got_design/screens/homepage.dart';
-import 'package:ezy_share_got_design/screens/register_screen.dart';
+import 'package:ezy_share_got_design/screens/authentication/register_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
