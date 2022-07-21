@@ -6,7 +6,6 @@ import 'package:ezy_share_got_design/components/bottom_navbar.dart';
 import 'package:ezy_share_got_design/provider/theme_provider.dart';
 import 'package:ezy_share_got_design/screens/card_design.dart';
 import 'package:ezy_share_got_design/screens/card_details.dart';
-
 import 'package:ezy_share_got_design/scanner/document_scan.dart';
 import 'package:ezy_share_got_design/screens/final_Qr_ScanPage.dart';
 import 'package:ezy_share_got_design/screens/homepage.dart';

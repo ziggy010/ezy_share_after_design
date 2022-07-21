@@ -323,6 +323,7 @@ class _HomepageState extends State<Homepage>
                                 onIndexChanged: (value) {
                                   setState(() {
                                     onCardNumber = value;
+                                    print(loggedInUser.phoneNumber);
                                   });
                                 },
                                 itemCount: 3,

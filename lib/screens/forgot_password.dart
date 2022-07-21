@@ -69,20 +69,21 @@ class ForgotPasswordScreen extends StatelessWidget {
         height: 60.h,
         width: 300.w,
         child: MaterialButton(
-            elevation: 0,
-            padding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
-            minWidth: MediaQuery.of(context).size.width,
-            onPressed: () {
-              _auth.sendPasswordResetEmail(email: emailController.text);
-              Fluttertoast.showToast(
-                  msg: "Email has been sent to the entered email address.");
-              Navigator.of(context).pop();
-            },
-            child: Text(
-              "Send me a link!",
-              textAlign: TextAlign.center,
-              style: kSigninButtonText,
-            )),
+          elevation: 0,
+          padding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
+          minWidth: MediaQuery.of(context).size.width,
+          onPressed: () {
+            _auth.sendPasswordResetEmail(email: emailController.text);
+            Fluttertoast.showToast(
+                msg: "Email has been sent to the entered email address.");
+            Navigator.of(context).pop();
+          },
+          child: Text(
+            "Send me a link!",
+            textAlign: TextAlign.center,
+            style: kSigninButtonText,
+          ),
+        ),
       ),
     );
 
