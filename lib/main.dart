@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:ezy_share_got_design/components/bottom_navbar.dart';
 import 'package:ezy_share_got_design/provider/theme_provider.dart';
 import 'package:ezy_share_got_design/screens/card_design.dart';
