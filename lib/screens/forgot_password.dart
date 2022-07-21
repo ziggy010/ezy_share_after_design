@@ -70,7 +70,7 @@ class ForgotPasswordScreen extends StatelessWidget {
         width: 300.w,
         child: MaterialButton(
             elevation: 0,
-            padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+            padding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
             minWidth: MediaQuery.of(context).size.width,
             onPressed: () {
               _auth.sendPasswordResetEmail(email: emailController.text);
