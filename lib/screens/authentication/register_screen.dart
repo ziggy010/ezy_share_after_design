@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ezy_share_got_design/components/reusable_button.dart';
+
 import 'package:ezy_share_got_design/components/text_fields.dart';
 import 'package:ezy_share_got_design/constants.dart';
 import 'package:ezy_share_got_design/model/user_model.dart';
@@ -440,13 +440,15 @@ class _RegistrationScreenState extends State<RegisterScreen> {
   void signUp(String email, String password) async {
     if (_formKey.currentState!.validate()) {
       showDialog(
-          context: context,
-          barrierDismissible: false,
-          builder: (context) => const Center(
-                  child: SpinKitFadingGrid(
-                size: 100,
-                color: Colors.blue,
-              )));
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => const Center(
+          child: SpinKitFadingGrid(
+            size: 100,
+            color: Colors.blue,
+          ),
+        ),
+      );
       try {
         await _auth
             .createUserWithEmailAndPassword(email: email, password: password)

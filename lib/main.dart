@@ -1,7 +1,7 @@
+import 'package:ezy_share_got_design/screens/forgot_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:ezy_share_got_design/components/bottom_navbar.dart';
 import 'package:ezy_share_got_design/provider/theme_provider.dart';
 import 'package:ezy_share_got_design/screens/card_design.dart';
@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
           theme: MyThemes.lightTheme,
           darkTheme: MyThemes.darkTheme,
           debugShowCheckedModeBanner: false,
-          initialRoute: OnboardingScreen.id,
+          initialRoute: ForgotPasswordScreen.id,
           routes: {
             OnboardingScreen.id: (context) => OnboardingScreen(),
             Homepage.id: (context) => Homepage(),
@@ -63,6 +63,7 @@ class _MyAppState extends State<MyApp> {
             BottomNavigationBarOne.id: (context) => BottomNavigationBarOne(),
             DocumentScan.id: (context) => const DocumentScan(),
             FinalQrPage.id: (context) => FinalQrPage(),
+            ForgotPasswordScreen.id: (context) => ForgotPasswordScreen(),
           },
         );
       }),

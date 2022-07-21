@@ -206,10 +206,11 @@ class _HomepageState extends State<Homepage>
                             Text(
                               'Welcome back!',
                               style: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontFamily: 'poppins',
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500),
+                                fontSize: 18.sp,
+                                fontFamily: 'poppins',
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ],
                         ),
@@ -368,14 +369,31 @@ class _HomepageState extends State<Homepage>
                             ),
                           ),
                           QrCircularContents(
+                            onTap: () {
+                              Navigator.pushNamed(context, FinalQrPage.id);
+                            },
                             currentOpacity: currentOpacity,
-                            left: 7,
-                            bottom: 20,
+                            left: 37,
+                            bottom: 10,
+                            heading: 'Citizenship',
                           ),
                           QrCircularContents(
+                            onTap: () {
+                              Navigator.pushNamed(context, FinalQrPage.id);
+                            },
                             currentOpacity: currentOpacity,
-                            left: 67,
-                            bottom: 60,
+                            left: 120,
+                            bottom: 70,
+                            heading: 'QR scan',
+                          ),
+                          QrCircularContents(
+                            onTap: () {
+                              Navigator.pushNamed(context, FinalQrPage.id);
+                            },
+                            currentOpacity: currentOpacity,
+                            left: 192,
+                            bottom: 10,
+                            heading: 'Passport',
                           ),
                         ],
                       ),
@@ -483,11 +501,15 @@ class QrCircularContents extends StatelessWidget {
   final double currentOpacity;
   final double left;
   final double bottom;
+  final String heading;
+  final VoidCallback onTap;
 
   QrCircularContents({
     required this.currentOpacity,
     required this.left,
     required this.bottom,
+    required this.heading,
+    required this.onTap,
   });
 
   @override
@@ -495,39 +517,42 @@ class QrCircularContents extends StatelessWidget {
     return Positioned(
       left: left.w,
       bottom: bottom.h,
-      child: Row(
-        children: [
-          AnimatedOpacity(
-            duration: const Duration(milliseconds: 700),
-            opacity: currentOpacity,
-            curve: Curves.fastOutSlowIn,
-            child: Text(
-              'Citizenship',
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'poppins',
-                fontWeight: FontWeight.w700,
-                fontSize: 12.sp,
+      child: GestureDetector(
+        onTap: onTap,
+        child: Column(
+          children: [
+            AnimatedOpacity(
+              duration: const Duration(milliseconds: 700),
+              opacity: currentOpacity,
+              curve: Curves.fastOutSlowIn,
+              child: Text(
+                heading,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'poppins',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 12.sp,
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            width: 5.w,
-          ),
-          AnimatedOpacity(
-            duration: const Duration(milliseconds: 700),
-            opacity: currentOpacity,
-            curve: Curves.fastOutSlowIn,
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: 20.r,
-              child: Icon(
-                Icons.qr_code_scanner_outlined,
-                color: Colors.black,
+            SizedBox(
+              height: 8.w,
+            ),
+            AnimatedOpacity(
+              duration: const Duration(milliseconds: 700),
+              opacity: currentOpacity,
+              curve: Curves.fastOutSlowIn,
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                radius: 20.r,
+                child: Icon(
+                  Icons.qr_code_scanner_outlined,
+                  color: Colors.black,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

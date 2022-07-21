@@ -142,16 +142,17 @@ class _SignInState extends State<SignIn> {
         height: 60.h,
         width: 300.w,
         child: MaterialButton(
-            padding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
-            minWidth: MediaQuery.of(context).size.width,
-            onPressed: () {
-              signIn(emailController.text, passwordController.text);
-            },
-            child: Text(
-              "Sign in",
-              textAlign: TextAlign.center,
-              style: kSigninButtonText,
-            )),
+          padding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
+          minWidth: MediaQuery.of(context).size.width,
+          onPressed: () {
+            signIn(emailController.text, passwordController.text);
+          },
+          child: Text(
+            "Sign in",
+            textAlign: TextAlign.center,
+            style: kSigninButtonText,
+          ),
+        ),
       ),
     );
 
