@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
           theme: MyThemes.lightTheme,
           darkTheme: MyThemes.darkTheme,
           debugShowCheckedModeBanner: false,
-          initialRoute: ForgotPasswordScreen.id,
+          initialRoute: OnboardingScreen.id,
           routes: {
             OnboardingScreen.id: (context) => OnboardingScreen(),
             Homepage.id: (context) => Homepage(),
