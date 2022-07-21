@@ -39,7 +39,7 @@ class _RegistrationScreenState extends State<RegisterScreen> {
       decoration: InputDecoration(
         fillColor: Color(0xFFE2E3FF),
         filled: true,
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: "Full Name",
         labelText: "Full Name",
         hintStyle: TextStyle(
@@ -84,7 +84,7 @@ class _RegistrationScreenState extends State<RegisterScreen> {
       decoration: InputDecoration(
         fillColor: Color(0xFFE2E3FF),
         filled: true,
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: "Phone Number",
         labelText: "Phone Number",
         hintStyle: TextStyle(
@@ -125,7 +125,7 @@ class _RegistrationScreenState extends State<RegisterScreen> {
       decoration: InputDecoration(
         fillColor: Color(0xFFE2E3FF),
         filled: true,
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: "Address",
         labelText: "Address",
         hintStyle: TextStyle(
@@ -167,7 +167,7 @@ class _RegistrationScreenState extends State<RegisterScreen> {
       decoration: InputDecoration(
         fillColor: Color(0xFFE2E3FF),
         filled: true,
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: "Email",
         labelText: "Email",
         hintStyle: TextStyle(
@@ -212,7 +212,7 @@ class _RegistrationScreenState extends State<RegisterScreen> {
       decoration: InputDecoration(
         fillColor: Color(0xFFE2E3FF),
         filled: true,
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: "Password",
         labelText: "Password",
         hintStyle: TextStyle(
@@ -258,7 +258,7 @@ class _RegistrationScreenState extends State<RegisterScreen> {
       decoration: InputDecoration(
         fillColor: Color(0xFFE2E3FF),
         filled: true,
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        contentPadding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
         hintText: "Confirm Password",
         labelText: "Confirm Password",
         hintStyle: TextStyle(
@@ -302,17 +302,17 @@ class _RegistrationScreenState extends State<RegisterScreen> {
         height: 60.h,
         width: 300.w,
         child: MaterialButton(
-            padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+            padding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 15.h),
             minWidth: MediaQuery.of(context).size.width,
             onPressed: () {
               signUp(
                   emailEditingController.text, passwordEditingController.text);
             },
-            child: const Text(
+            child: Text(
               "Register",
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   color: Colors.white,
                   fontWeight: FontWeight.bold),
             )),
@@ -504,7 +504,9 @@ class _RegistrationScreenState extends State<RegisterScreen> {
         .set(userModel.toMap());
     Fluttertoast.showToast(msg: "Account created successfully :) ");
 
-    Navigator.pushAndRemoveUntil((context),
-        MaterialPageRoute(builder: (context) => Homepage()), (route) => false);
+    Navigator.pushAndRemoveUntil(
+        (context),
+        MaterialPageRoute(builder: (context) => CardScreen()),
+        (route) => false);
   }
 }

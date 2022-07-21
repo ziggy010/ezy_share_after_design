@@ -1,6 +1,7 @@
 import 'package:ezy_share_got_design/components/reusable_button.dart';
 import 'package:ezy_share_got_design/components/text_fields.dart';
 import 'package:ezy_share_got_design/constants.dart';
+
 import 'package:ezy_share_got_design/screens/homepage.dart';
 import 'package:ezy_share_got_design/screens/authentication/register_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -208,6 +209,22 @@ class _SignInState extends State<SignIn> {
                     height: 25.h,
                   ),
                   passwordField,
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Homepage())),
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 3.w),
+                      child: Text.rich(
+                        TextSpan(
+                          text: 'Forgot password?  ',
+                          style: kSigninBodySmallText,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

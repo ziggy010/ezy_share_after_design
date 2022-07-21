@@ -28,3 +28,32 @@ class UserModel {
     };
   }
 }
+
+class CardForm {
+  String? uid;
+  String? fullName;
+  String? profession;
+  String? companyName;
+  String? designation;
+  String? phoneNumber;
+  String? email;
+
+  CardForm({
+    this.uid = '',
+    required this.fullName,
+    required this.profession,
+    required this.companyName,
+    required this.designation,
+    required this.phoneNumber,
+    required this.email,
+  });
+  Map<String, dynamic> toJson() => {
+        'uid': uid,
+        'fullName': fullName,
+        'profession': profession,
+        'companyName': companyName,
+        'designation': designation,
+        'phoneNumber': phoneNumber,
+        'email': email,
+      };
+}
