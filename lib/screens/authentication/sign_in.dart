@@ -1,6 +1,7 @@
 import 'package:ezy_share_got_design/components/reusable_button.dart';
 import 'package:ezy_share_got_design/components/text_fields.dart';
 import 'package:ezy_share_got_design/constants.dart';
+import 'package:ezy_share_got_design/screens/forgot_password.dart';
 
 import 'package:ezy_share_got_design/screens/homepage.dart';
 import 'package:ezy_share_got_design/screens/authentication/register_screen.dart';
@@ -214,7 +215,8 @@ class _SignInState extends State<SignIn> {
                   ),
                   TextButton(
                     onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => Homepage())),
+                        MaterialPageRoute(
+                            builder: (context) => ForgotPasswordScreen())),
                     child: Padding(
                       padding: EdgeInsets.only(left: 3.w),
                       child: Text.rich(
