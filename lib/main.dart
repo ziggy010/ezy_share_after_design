@@ -42,9 +42,6 @@ class _MyAppState extends State<MyApp> {
       designSize: const Size(360, 800),
       builder: ((context, child) {
         return MaterialApp(
-          themeMode: ThemeMode.system,
-          theme: MyThemes.lightTheme,
-          darkTheme: MyThemes.darkTheme,
           debugShowCheckedModeBanner: false,
           initialRoute: SignIn.id,
           routes: {

@@ -153,125 +153,130 @@ class _SignInState extends State<SignIn> {
       ),
     );
 
-    return Scaffold(
-      backgroundColor: kBackgroundColor,
-      appBar: AppBar(
-        elevation: 0,
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
         backgroundColor: kBackgroundColor,
-        iconTheme: const IconThemeData(
-          color: Colors.black,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: kBackgroundColor,
+          iconTheme: const IconThemeData(
+            color: Colors.black,
+          ),
         ),
-      ),
-      resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.baseline,
-          textBaseline: TextBaseline.alphabetic,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Text(
-                  'Let\'s sign you in.',
-                  style: kSignInHeadText,
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Text(
-                  'Welcome back',
-                  style: kSignInSubText,
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Text(
-                  'You\'ve been missed.',
-                  style: kSignInSubText,
-                ),
-              ],
-            ),
-            Form(
-              key: _formKey,
-              child: Column(
+        resizeToAvoidBottomInset: false,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            textBaseline: TextBaseline.alphabetic,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.baseline,
                 textBaseline: TextBaseline.alphabetic,
                 children: [
-                  emailField,
-                  SizedBox(
-                    height: 25.h,
+                  Text(
+                    'Let\'s sign you in.',
+                    style: kSignInHeadText,
                   ),
-                  passwordField,
                   SizedBox(
                     height: 10.h,
                   ),
-                  TextButton(
-                    onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => ForgotPasswordScreen())),
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 3.w),
-                      child: Text.rich(
-                        TextSpan(
-                          text: 'Forgot password?  ',
-                          style: kSigninBodySmallText.copyWith(
-                            color: kNavbarColor,
-                          ),
-                        ),
-                      ),
-                    ),
+                  Text(
+                    'Welcome back',
+                    style: kSignInSubText,
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Text(
+                    'You\'ve been missed.',
+                    style: kSignInSubText,
                   ),
                 ],
               ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Column(
-              children: [
-                SizedBox(
-                  height: 30.h,
-                ),
-                Column(
+              Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
                   children: [
-                    Center(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, RegisterScreen.id);
-                        },
+                    emailField,
+                    SizedBox(
+                      height: 25.h,
+                    ),
+                    passwordField,
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (context) => ForgotPasswordScreen())),
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 3.w),
                         child: Text.rich(
                           TextSpan(
-                            text: 'Don\'t have an account?  ',
-                            style: kSigninBodySmallText,
-                            children: [
-                              TextSpan(
-                                text: 'Register',
-                                style: kBodySmallText.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ],
+                            text: 'Forgot password?  ',
+                            style: kSigninBodySmallText.copyWith(
+                              color: kNavbarColor,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 16),
-                    ),
-                    loginButton,
                   ],
                 ),
-              ],
-            ),
-          ],
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Column(
+                children: [
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  Column(
+                    children: [
+                      Center(
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, RegisterScreen.id);
+                          },
+                          child: Text.rich(
+                            TextSpan(
+                              text: 'Don\'t have an account?  ',
+                              style: kSigninBodySmallText,
+                              children: [
+                                TextSpan(
+                                  text: 'Register',
+                                  style: kBodySmallText.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 16),
+                      ),
+                      loginButton,
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

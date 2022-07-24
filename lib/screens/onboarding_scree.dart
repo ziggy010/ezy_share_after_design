@@ -4,6 +4,7 @@ import 'package:ezy_share_got_design/screens/onboarding_screens/onboarding_scree
 import 'package:ezy_share_got_design/screens/onboarding_screens/onboarding_screen3.dart';
 import 'package:ezy_share_got_design/screens/authentication/sign_in.dart';
 import 'package:flutter/material.dart';
+import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:ezy_share_got_design/constants.dart';
 
