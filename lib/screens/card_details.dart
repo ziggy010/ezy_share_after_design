@@ -214,24 +214,26 @@ class _CardScreenState extends State<CardScreen> {
                   height: 10,
                 ),
                 ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: Colors.teal),
-                    onPressed: () {
-                      if (_formkey.currentState!.validate()) {
-                        showDialog(
-                            context: context,
-                            barrierDismissible: false,
-                            builder: (context) => const Center(
-                                    child: SpinKitFadingGrid(
-                                  size: 50,
-                                  color: Colors.teal,
-                                )));
-                        createCard();
-                      } else {
-                        showSnackBar("Please fill the form first",
-                            const Duration(milliseconds: 700));
-                      }
-                    },
-                    child: const Text("Submit")),
+                  style: ElevatedButton.styleFrom(primary: Colors.teal),
+                  onPressed: () {
+                    if (_formkey.currentState!.validate()) {
+                      createCard();
+
+                      showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (context) => const Center(
+                                  child: SpinKitFadingGrid(
+                                size: 50,
+                                color: Colors.teal,
+                              )));
+                    } else {
+                      showSnackBar("Please fill the form first",
+                          const Duration(milliseconds: 700));
+                    }
+                  },
+                  child: const Text("Submit"),
+                ),
               ],
             ),
           ),
