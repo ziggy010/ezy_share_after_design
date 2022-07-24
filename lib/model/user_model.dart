@@ -71,7 +71,3 @@ class CardForm {
     };
   }
 }
-
-getCardData() async {
-  return await firebaseFirestore.collection("card").snapshots();
-}

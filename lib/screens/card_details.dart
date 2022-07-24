@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:ezy_share_got_design/model/user_model.dart';
@@ -10,6 +12,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class CardScreen extends StatefulWidget {
+  final _formKey = GlobalKey<FormState>();
   String? userId;
   static const String id = 'CardScreen';
   CardScreen({Key? key, this.userId}) : super(key: key);
@@ -19,36 +22,20 @@ class CardScreen extends StatefulWidget {
 }
 
 class _CardScreenState extends State<CardScreen> {
+  final _auth = FirebaseAuth.instance;
+  String? errorMessage;
+
+  final fullNameEditingController = TextEditingController();
+  final emailEditingController = TextEditingController();
+  final designationEditingController = TextEditingController();
+  final companyNameEditingController = TextEditingController();
+  final phoneNumberEditingController = TextEditingController();
+  final professionEditingController = TextEditingController();
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
-  @override
-  void initState() {
-    super.initState();
-    FirebaseFirestore.instance
-        .collection("users")
-        .doc(user!.uid)
-        .get()
-        .then((value) {
-      loggedInUser = UserModel.fromMap(value.data());
-      setState(() {});
-    });
-  }
 
-  final _auth = FirebaseAuth.instance;
   final _formkey = GlobalKey<FormState>();
-  final emailController = TextEditingController();
-  final fullNameController = TextEditingController();
-  final phoneNumberController = TextEditingController();
-  final professionController = TextEditingController();
-  final designationController = TextEditingController();
-  final companyNameController = TextEditingController();
-  String? uid;
-  String? fullName;
-  String? profession;
-  String? companyName;
-  String? designation;
-  String? phoneNumber;
-  String? email;
+
   late bool _isLoading;
 
   //snackbar for showing error
@@ -60,33 +47,31 @@ class _CardScreenState extends State<CardScreen> {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
-  Future createCard() async {
+  createCard() async {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-    Reference ref = FirebaseStorage.instance.ref();
-    User? user = FirebaseAuth.instance.currentUser;
-    // User? user = _auth.currentUser;
-    UserModel loggedInUser = UserModel();
+    User? user = _auth.currentUser;
+
     CardForm cardForm = CardForm();
 
-    cardForm.uid = widget.userId!;
-    cardForm.fullName = fullNameController.text;
-    cardForm.profession = professionController.text;
-    cardForm.companyName = companyNameController.text;
-    cardForm.designation = designationController.text;
-    cardForm.phoneNumber = phoneNumberController.text;
-    cardForm.email = emailController.text;
-
-    await firebaseFirestore
-        .collection("users")
-        .doc(user!.uid)
-        .set(cardForm.toMap());
-
-    Fluttertoast.showToast(msg: "Card created! )");
+    cardForm.uid = user!.uid;
+    cardForm.email = emailEditingController.text;
+    cardForm.fullName = fullNameEditingController.text;
+    cardForm.phoneNumber = phoneNumberEditingController.text;
+    cardForm.designation = designationEditingController.text;
+    cardForm.companyName = companyNameEditingController.text;
+    cardForm.profession = professionEditingController.text;
+    cardForm.uid = widget.userId;
+    Reference ref = FirebaseFirestore.instance
+        .collection("${widget.userId}/users")
+        .doc('card')
+        .set(cardForm.toMap()) as Reference;
+    Fluttertoast.showToast(msg: "Card created!");
 
     Navigator.pushAndRemoveUntil((context),
         MaterialPageRoute(builder: (context) => Homepage()), (route) => false);
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -104,10 +89,10 @@ class _CardScreenState extends State<CardScreen> {
                     child: Column(
                       children: [
                         TextFormField(
-                          controller: fullNameController,
+                          controller: fullNameEditingController,
                           decoration: InputDecoration(
                               border: const OutlineInputBorder(),
-                              hintText: "${loggedInUser.fullName}"),
+                              hintText: "name"),
                           keyboardType: TextInputType.multiline,
                           maxLines: null,
                           validator: (value) {
@@ -117,14 +102,14 @@ class _CardScreenState extends State<CardScreen> {
                             return null;
                           },
                           onSaved: (value) {
-                            fullName = value;
+                            fullNameEditingController.text = value!;
                           },
                         ),
                         const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
-                          controller: professionController,
+                          controller: professionEditingController,
                           decoration: const InputDecoration(
                               border: const OutlineInputBorder(),
                               hintText: "Profession"),
@@ -137,14 +122,14 @@ class _CardScreenState extends State<CardScreen> {
                             return null;
                           },
                           onSaved: (value) {
-                            profession = value;
+                            professionEditingController.text = value!;
                           },
                         ),
                         const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
-                          controller: companyNameController,
+                          controller: companyNameEditingController,
                           decoration: const InputDecoration(
                               border: const OutlineInputBorder(),
                               hintText: "Company Name"),
@@ -157,14 +142,14 @@ class _CardScreenState extends State<CardScreen> {
                             return null;
                           },
                           onSaved: (value) {
-                            companyName = value;
+                            companyNameEditingController.text = value!;
                           },
                         ),
                         const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
-                          controller: designationController,
+                          controller: designationEditingController,
                           decoration: const InputDecoration(
                               border: const OutlineInputBorder(),
                               hintText: "Designation"),
@@ -177,17 +162,17 @@ class _CardScreenState extends State<CardScreen> {
                             return null;
                           },
                           onSaved: (value) {
-                            designation = value;
+                            designationEditingController.text = value!;
                           },
                         ),
                         const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
-                          controller: phoneNumberController,
+                          controller: phoneNumberEditingController,
                           decoration: InputDecoration(
                               border: const OutlineInputBorder(),
-                              hintText: "${loggedInUser.phoneNumber}"),
+                              hintText: "phone"),
                           keyboardType: TextInputType.multiline,
                           maxLines: null,
                           validator: (value) {
@@ -197,17 +182,17 @@ class _CardScreenState extends State<CardScreen> {
                             return null;
                           },
                           onSaved: (value) {
-                            phoneNumber = value;
+                            phoneNumberEditingController.text = value!;
                           },
                         ),
                         const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
-                          controller: emailController,
+                          controller: emailEditingController,
                           decoration: InputDecoration(
                               border: const OutlineInputBorder(),
-                              hintText: "${loggedInUser.email}"),
+                              hintText: "email"),
                           keyboardType: TextInputType.multiline,
                           maxLines: null,
                           validator: (value) {
@@ -217,7 +202,7 @@ class _CardScreenState extends State<CardScreen> {
                             return null;
                           },
                           onSaved: (value) {
-                            email = value;
+                            emailEditingController.text = value!;
                           },
                         ),
                         const SizedBox(
